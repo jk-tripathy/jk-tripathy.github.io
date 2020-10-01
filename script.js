@@ -8,6 +8,4 @@ $(document).ready(function(){
         console.log("asd")
         $('.navbar ul').removeClass("active");
     });
-
-
 });
