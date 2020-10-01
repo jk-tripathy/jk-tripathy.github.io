@@ -8,4 +8,12 @@ $(document).ready(function(){
         console.log("asd")
         $('.navbar ul').removeClass("active");
     });
+
+    // typing anim
+    var typed = new Typed(".typing-anim", {
+        strings: ["Researcher^500", "NLP Enthusiast^500", "Developer^500", "Freelancer^500"],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true,
+    });
 });

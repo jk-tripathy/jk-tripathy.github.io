@@ -84,6 +84,8 @@ section{
 #home{
     background-color: #333333;
     color: white;
+    margin-left: 25%;
+    align-items: flex-start; 
 }
 
 .home-content .text1{
@@ -158,8 +160,8 @@ section{
 #about .about-body .info .dwnld-cv:hover{
 background-color: coral;
 }
-/* services section  */
-#services{
+/* projects section  */
+#projects{
     background-color: #333333;
     color: white;
 }
@@ -197,13 +199,17 @@ background-color: coral;
     .navbar ul li a{
        font-size:30px;
     }
+    #home{
+    margin-left: 5%;
+    align-items: flex-start; 
+    }
     .home-content .text1{
         font-size: 55px;
         font-weight: 600;
         color: coral;
     }
     .home-content .text2{
-        font-size: 35px;
+        font-size: 30px;
     }
 
     #about .about-body .my-img img{
@@ -254,13 +260,17 @@ background-color: coral;
     .navbar ul li a{
        font-size:30px;
     }
+    #home{
+        margin-left: 5%;
+        align-items: flex-start; 
+    }
     .home-content .text1{
         font-size: 45px;
         font-weight: 600;
         color: coral;
     }
     .home-content .text2{
-        font-size: 25px;
+        font-size: 20px;
     }
 
     #about .about-body .my-img img{
