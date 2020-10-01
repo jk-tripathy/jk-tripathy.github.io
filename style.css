@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto+Mono:wght@400;600&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -8,6 +9,7 @@ body{
     line-height: 1.6;
     height: 100vh;
     overflow: hidden
+    
 }
 
 .container{
@@ -28,9 +30,19 @@ body{
     width: 100%;
     height: 50;
     display: flex;
+    font-family: 'Montserrat', Verdana;
+    font-weight: 600;
     background: teal;
 }
-
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 10px 0px 10px 15px;
+    /* padding: 6px; */
+    transition: 0.3s;
+    display: none;
+  }
 .navbar ul{
     display: flex;
     list-style: none;
@@ -45,13 +57,14 @@ body{
 
 .navbar ul li a{
     text-decoration: none;
-    text-transform: uppercase;
     color:white;
+    transition: color 0.3s ease;
 }
 
 .navbar ul li a:hover{
     color: coral;
 }
+
 
 
 /* section style */
@@ -64,31 +77,71 @@ section{
     width: 100%;
     height: 100vh;
     scroll-snap-align: center;
+    font-family: 'Roboto Mono', sans-serif;
 }
 
-section h1{
-    font-size: 4rem;
-}
-section h1:hover{
-    color:teal;
-}
-section p{
-    font-size: 1.5rem;
-}
-
+/* home section  */
 #home{
     background-color: #333333;
     color: white;
 }
+
+.home-content .text1{
+    font-size: 75px;
+    font-weight: 600;
+    color: coral;
+}
+.home-content .text2{
+    font-size: 40px;
+}
+.home-content .text2 span{
+    color: coral;
+    font-weight: 600;
+}
+
+/* about section  */
 #about{
     background-color: white;
     color:#333333
 }
+
+/* services section  */
 #services{
     background-color: #333333;
     color: white;
 }
+
+/* contact section  */
 #contact{
     background-color: white;
     color:#333333
+}
+
+
+/* responsive media query  */
+@media (max-width: 700px) {
+    .bar1, .bar2, .bar3  {
+        display: block;
+        z-index: 999;
+    }
+
+    .navbar ul{
+        position: fixed;
+        z-index: 0;
+        height: 100vh;
+        left: -100%;
+        top: 50px;
+        background: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s;
+    }
+    .navbar ul.active{
+        left:0%;
+    }
+    .navbar ul li a{
+       font-size:30px;
+    }
 }
