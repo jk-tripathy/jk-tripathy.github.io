@@ -16,6 +16,7 @@ body{
     width: 100%;
     height: 100%;
     /* css smooth scroll */
+    overflow-x: hidden;
     overflow-y: scroll;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
@@ -174,7 +175,16 @@ background-color: coral;
 
 
 /* responsive media query  */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
+    #about .about-body .info .info-text{
+        margin: 20px;
+        font-size: 13px;
+        text-align: justify;
+    
+    }
+}
+
+@media (max-width: 800px) {
     .bar1, .bar2, .bar3  {
         display: block;
         z-index: 999;
@@ -213,10 +223,9 @@ background-color: coral;
     }
 
     #about .about-body .my-img img{
-        display: none;
-    }
-    #about .about-body .seperator{
-        display: none;
+        width: 300px;
+        height: 500px;
+        object-fit: contain;
     }
    
     #about .about-body .info{
@@ -232,7 +241,7 @@ background-color: coral;
     }
     
 }
-@media (max-width: 500px) {
+@media (max-width: 680px) {
     section{
         padding-top: 50px;
     }
@@ -279,22 +288,71 @@ background-color: coral;
     #about .about-body .seperator{
         display: none;
     }
-
+    #about .title{
+        padding: 0;
+        margin: 0;
+    }
+    #about .about-body{
+        padding: 0;
+        margin: 0;
+    }
     #about .about-body .info{
-        width: 90%;
-        height: 80%;
+        width: 100%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
     }
     #about .about-body .info .info-text{
-        margin: 20px;
-        font-size: 13px;
+        font-size: 14px;
+        padding: 0;
+        margin: 10px;
+        margin-bottom: 15px;
         text-align: justify;
     
     }
-    #about .about-body .info .dwnld-cv:hover{
+    #about .about-body .info .dwnld-cv{
+        margin-top: 0px;
+        padding: 5px;
         background-color: coral;
+    }
+    #about .about-body .info .dwnld-cv:hover{
+        background-color: none;
+    }
+}
+
+@media (max-width: 350px) {
+    #about .title{
+        font-size: 30px;
+        padding: 0;
+        margin: 0;
+    }
+    #about .about-body{
+        padding: 0;
+        margin: 0;
+    }
+    #about .about-body .info{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #about .about-body .info .info-text{
+        font-size: 11px;
+        padding: 0;
+        margin: 10px;
+        text-align: justify;
+    
+    }
+    #about .about-body .info .dwnld-cv{
+        margin-top: 0px;
+        padding: 5px;
+        background-color: coral;
+    }
+    #about .about-body .info .dwnld-cv:hover{
+        background-color: none;
     }
 }
