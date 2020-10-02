@@ -1,18 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto+Mono:wght@400;600&display=swap');
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background: #333333;
     line-height: 1.6;
     height: 100vh;
     overflow: hidden
-    
 }
 
-.container{
+.container {
     width: 100%;
     height: 100%;
     /* css smooth scroll */
@@ -24,7 +23,8 @@ body{
 
 
 /* nav bar styling */
-.navbar{
+
+.navbar {
     position: fixed;
     top: 0;
     z-index: 1;
@@ -35,7 +35,10 @@ body{
     font-weight: 600;
     background: teal;
 }
-.bar1, .bar2, .bar3 {
+
+.bar1,
+.bar2,
+.bar3 {
     width: 35px;
     height: 5px;
     background-color: white;
@@ -43,34 +46,34 @@ body{
     /* padding: 6px; */
     transition: 0.3s;
     display: none;
-  }
-.navbar ul{
+}
+
+.navbar ul {
     display: flex;
     list-style: none;
     width: 100%;
     justify-content: center;
 }
 
-.navbar ul li{
+.navbar ul li {
     margin: 0 1rem;
     padding: 1rem;
 }
 
-.navbar ul li a{
+.navbar ul li a {
     text-decoration: none;
-    color:white;
+    color: white;
     transition: color 0.3s ease;
 }
 
-.navbar ul li a:hover{
+.navbar ul li a:hover {
     color: coral;
 }
 
 
-
 /* section style */
 
-section{
+section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -81,34 +84,41 @@ section{
     font-family: 'Roboto Mono', sans-serif;
 }
 
+
 /* home section  */
-#home{
+
+#home {
     background-color: #333333;
     color: white;
     padding-left: 25%;
-    align-items: flex-start; 
+    align-items: flex-start;
 }
 
-.home-content .text1{
+.home-content .text1 {
     font-size: 75px;
     font-weight: 600;
     color: coral;
 }
-.home-content .text2{
+
+.home-content .text2 {
     font-size: 40px;
 }
-.home-content .text2 span{
+
+.home-content .text2 span {
     font-family: 'Montserrat', Verdana;
     color: coral;
     font-weight: 600;
 }
 
+
 /* about section  */
-#about{
+
+#about {
     background-color: white;
-    color:#333333
+    color: #333333
 }
-#about .title{
+
+#about .title {
     font-family: 'Montserrat', Verdana;
     color: #333333;
     margin-top: 25px;
@@ -116,31 +126,35 @@ section{
     font-size: 40px;
 }
 
-#about .about-body{
+#about .about-body {
     width: 90%;
     height: 80%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-#about .about-body .my-img{
+
+#about .about-body .my-img {
     width: 50%;
     height: 85%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#about .about-body .my-img img{
+
+#about .about-body .my-img img {
     width: 400px;
     height: 600px;
     object-fit: contain;
 }
-#about .about-body .seperator{
+
+#about .about-body .seperator {
     width: 5px;
     height: 100%;
-    background:coral;
+    background: coral;
 }
-#about .about-body .info{
+
+#about .about-body .info {
     width: 50%;
     height: 85%;
     display: flex;
@@ -148,13 +162,14 @@ section{
     align-items: center;
     flex-direction: column;
 }
-#about .about-body .info .info-text{
+
+#about .about-body .info .info-text {
     margin: 30px;
     font-size: 15px;
     text-align: justify;
-
 }
-#about .about-body .info .dwnld-cv{
+
+#about .about-body .info .dwnld-cv {
     margin-top: 15px;
     border-radius: 25px;
     border: 3px solid coral;
@@ -165,16 +180,20 @@ section{
     text-align: center;
     transition: all 0.3s ease;
 }
-#about .about-body .info .dwnld-cv:hover{
-background-color: coral;
+
+#about .about-body .info .dwnld-cv:hover {
+    background-color: coral;
 }
+
+
 /* skills section  */
-#skills{
+
+#skills {
     background-color: #333333;
     color: white;
-    
 }
-#skills .skills-body{
+
+#skills .skills-body {
     width: 90%;
     height: 80%;
     display: flex;
@@ -182,7 +201,8 @@ background-color: coral;
     align-items: center;
     flex-direction: column;
 }
-#skills .skills-body .pie-charts-info{
+
+#skills .skills-body .pie-charts-info {
     width: 100%;
     font-family: 'Roboto Mono', sans-serif;
     display: flex;
@@ -190,20 +210,24 @@ background-color: coral;
     align-items: center;
     flex-direction: row;
 }
-#skills .skills-body .pie-charts-info .piechart{
+
+#skills .skills-body .pie-charts-info .piechart {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
 }
-#skills .skills-body .pie-charts-info .piechart p{
+
+#skills .skills-body .pie-charts-info .piechart p {
     font-size: 30px;
     padding-top: 15px;
 }
-.pie{
+
+.pie {
     size: 100px;
 }
-#skills .title{
+
+#skills .title {
     font-family: 'Montserrat', Verdana;
     color: white;
     margin-top: 25px;
@@ -211,45 +235,131 @@ background-color: coral;
     font-size: 40px;
 }
 
-#skills p{
+#skills p {
     text-align: justify;
 }
+
+
 /* research section  */
-#research{
+
+#research {
     background-color: white;
-    color:#333333
+    color: #333333;
 }
 
+#research .title {
+    font-family: 'Montserrat', Verdana;
+    color: #333333;
+    margin-top: 25px;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+#research .research-body {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#research .research-body .carousel{
+    width: 100%;
+    height: 80%
+}
+#research .research-body .carousel .card {
+    /* width: 90%; */
+    background: #333333;
+    color: white;
+}
+#research .research-body .carousel .card .card-body{
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+} 
+#research .research-body .carousel .card .card-body .paper-title{
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+#research .research-body .carousel .card .card-body .summary{
+    padding-top: 30px;
+    font-size: 20px;
+    text-align: justify;
+}
+.owl-dots{
+    text-align: center;
+    margin-top: 20px;
+}
+.owl-dot{
+    height: 13px;
+    width: 13px;
+    margin: 0 5px;
+    outline: none!important;
+    border-radius: 50%;
+    border: 2px solid teal!important;
+    transition: all 0.3s ease;
+}
+.owl-dot.active{
+    width: 35px;
+    border-radius: 14px;
+}
+.owl-dot.active,
+.owl-dot:hover{
+    background: teal!important;
+}
+#research .research-body .card .card-body .card-btns{
+    padding-top: 50px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+.paper-icon,
+.github-icon{
+    padding: 0 30px;
+    width: 20px;
+    height: 50px;
+}
+
+
 /* projects section  */
-#projects{
+
+#projects {
     background-color: #333333;
     color: white;
 }
 
+
 /* contact section  */
-#contact{
+
+#contact {
     background-color: white;
-    color:#333333
+    color: #333333
 }
 
 
 /* responsive media query  */
+
 @media (max-width: 900px) {
-    #about .about-body .info .info-text{
+    #about .about-body .info .info-text {
         margin: 20px;
         font-size: 13px;
         text-align: justify;
-    
     }
 }
 
 @media (max-width: 800px) {
-    .bar1, .bar2, .bar3  {
+    .bar1,
+    .bar2,
+    .bar3 {
         display: block;
         z-index: 999;
     }
-
-    .navbar ul{
+    .navbar ul {
         position: fixed;
         z-index: 0;
         height: 100vh;
@@ -262,32 +372,30 @@ background-color: coral;
         align-items: center;
         transition: all 0.3s;
     }
-    .navbar ul.active{
-        left:0%;
+    .navbar ul.active {
+        left: 0%;
     }
-    .navbar ul li a{
-       font-size:30px;
+    .navbar ul li a {
+        font-size: 30px;
     }
-    #home{
-    padding-left: 5%;
-    align-items: flex-start; 
+    #home {
+        padding-left: 5%;
+        align-items: flex-start;
     }
-    .home-content .text1{
+    .home-content .text1 {
         font-size: 55px;
         font-weight: 600;
         color: coral;
     }
-    .home-content .text2{
+    .home-content .text2 {
         font-size: 30px;
     }
-
-    #about .about-body .my-img img{
+    #about .about-body .my-img img {
         width: 300px;
         height: 500px;
         object-fit: contain;
     }
-   
-    #about .about-body .info{
+    #about .about-body .info {
         width: 90%;
         height: 80%;
         display: flex;
@@ -295,21 +403,22 @@ background-color: coral;
         align-items: center;
         flex-direction: column;
     }
-    #about .about-body .info .dwnld-cv:hover{
+    #about .about-body .info .dwnld-cv:hover {
         background-color: coral;
     }
-    
 }
+
 @media (max-width: 680px) {
-    section{
+    section {
         padding-top: 50px;
     }
-    .bar1, .bar2, .bar3  {
+    .bar1,
+    .bar2,
+    .bar3 {
         display: block;
         z-index: 999;
     }
-
-    .navbar ul{
+    .navbar ul {
         position: fixed;
         z-index: 0;
         height: 100vh;
@@ -322,36 +431,39 @@ background-color: coral;
         align-items: center;
         transition: all 0.3s;
     }
-    .navbar ul.active{
-        left:0%;
+    .navbar ul.active {
+        left: 0%;
     }
-    .navbar ul li a{
-       font-size:30px;
+    .navbar ul li a {
+        font-size: 30px;
     }
-    #home{
+    #home {
         padding-left: 5%;
-        align-items: flex-start; 
+        align-items: flex-start;
     }
-    #home .home-content .text1{
+    #home .home-content .text1 {
         font-size: 45px;
         font-weight: 600;
         color: coral;
     }
-    #home .home-content .text2{
+    #home .home-content .text2 {
         font-size: 20px;
     }
-
-    #about .about-body .my-img{
+    #about .about-body .my-img {
         display: none;
     }
-    #about .about-body .seperator{
+    #about .about-body .seperator {
         display: none;
     }
-    #about .title, #skills .title{
+    #about .title,
+    #skills .title ,
+    #research .title{
         padding: 0;
         margin: 0;
     }
-    #about .about-body, #skills .skills-body{
+    #about .about-body,
+    #skills .skills-body,
+    #research .research-body {
         padding: 0;
         margin: 0;
         display: flex;
@@ -359,7 +471,7 @@ background-color: coral;
         justify-content: center;
         align-items: center;
     }
-    #about .about-body .info{
+    #about .about-body .info {
         width: 100%;
         height: 100%;
         display: flex;
@@ -367,32 +479,70 @@ background-color: coral;
         align-items: center;
         flex-direction: column;
     }
-    #about .about-body .info .info-text, #skills p{
+    #about .about-body .info .info-text,
+    #skills p {
         font-size: 14px;
         /* padding: 10px; */
         margin-bottom: 15px;
         text-align: justify;
-    
     }
-    #about .about-body .info .dwnld-cv{
+    #about .about-body .info .dwnld-cv {
         padding: 5px;
         background-color: #ff7f50;
     }
-    #about .about-body .info .dwnld-cv:hover{
+    #about .about-body .info .dwnld-cv:hover {
         background-color: none;
     }
-    #skills .skills-body .pie-charts-info .piechart p{
+    #skills .skills-body .pie-charts-info .piechart p {
         font-size: 20px;
     }
-}
-
-@media (max-width: 350px) {
-    #about .title, #skills .title{
-        font-size: 30px;
+    #research .research-body{
+        height: 80%;
+    }
+    #research .research-body .carousel{
         padding: 0;
         margin: 0;
     }
-    #about .about-body, #skills .skills-body{
+    #research .research-body .carousel .card {
+        padding: 0;
+        margin: 0;
+        height: 400px
+    }
+    #research .research-body .carousel .card .card-body .paper-title{
+        font-size: 20px;
+        /* padding-top: 5px; */
+    }
+    #research .research-body .carousel .card .card-body .summary{
+        font-size:12px;
+    }
+    #research .research-body .card .card-body .card-btns{
+        padding-top: 5px;
+        margin-bottom: 15px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } 
+    .paper-icon,
+    .github-icon{
+        padding: 0 30px;
+        width: 20px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 380px) {
+    #about .title,
+    #skills .title,
+    #research .title{
+        font-size: 20px;
+        padding: 0;
+        margin: 0;
+    }
+    #about .about-body,
+    #skills .skills-body,
+    #research .research-body{
         padding: 0;
         margin: 0;
         display: flex;
@@ -400,14 +550,13 @@ background-color: coral;
         align-items: center;
         flex-direction: column;
     }
-    #about .about-body .my-img{
+    #about .about-body .my-img {
         display: none;
     }
-    #about .about-body .seperator{
+    #about .about-body .seperator {
         display: none;
     }
-    
-    #about .about-body .info{
+    #about .about-body .info {
         width: 100%;
         height: 100%;
         display: flex;
@@ -415,22 +564,58 @@ background-color: coral;
         align-items: center;
         flex-direction: column;
     }
-    #about .about-body .info .info-text, #skills p{
+    #about .about-body .info .info-text,
+    #skills p {
         font-size: 11px;
         padding: 0;
         text-align: justify;
-    
     }
-    #about .about-body .info .dwnld-cv{
+    #about .about-body .info .dwnld-cv {
         margin-top: 0px;
         padding: 5px;
         background-color: coral;
     }
-    #about .about-body .info .dwnld-cv:hover{
+    #about .about-body .info .dwnld-cv:hover {
         background-color: none;
     }
-    #skills .skills-body .pie-charts-info{
-        zoom: 0.7;
+    #skills .skills-body .pie-charts-info {
+        margin-left: 20px;
+        margin-right: 20px;
+        zoom: 0.5;
         -moz-transform: scale(0.5);
+    }
+    #research .research-body{
+        height: 80%;
+    }
+    #research .research-body .carousel{
+        padding: 0;
+        margin: 0;
+    }
+    #research .research-body .carousel .card {
+        padding: 0;
+        margin: 0;
+        height: 400px
+    }
+    #research .research-body .carousel .card .card-body .paper-title{
+        font-size: 20px;
+        padding-top: 5px;
+    }
+    #research .research-body .carousel .card .card-body .summary{
+        font-size: 9px;
+    }
+    #research .research-body .card .card-body .card-btns{
+        padding-bottom: 15px;
+        padding-top: 5px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } 
+    .paper-icon,
+    .github-icon{
+        padding: 0 30px;
+        width: 10px;
+        height: 15px;
     }
 }
