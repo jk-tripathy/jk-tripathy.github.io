@@ -16,7 +16,7 @@ $(document).ready(function(){
     });
 
     // owl carousel script
-    $('.carousel').owlCarousel({
+    $('.research-carousel').owlCarousel({
         margin: 20,
         loop: true,
         autoplayTimeOut: 1000,

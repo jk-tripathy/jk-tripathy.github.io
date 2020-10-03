@@ -262,32 +262,49 @@ section {
     justify-content: center;
     align-items: center;
 }
-#research .research-body .carousel{
+#research .research-body .research-carousel{
     width: 100%;
     height: 80%
 }
-#research .research-body .carousel .card {
+#research .research-body .research-carousel .card {
     /* width: 90%; */
     background: #333333;
     color: white;
 }
-#research .research-body .carousel .card .card-body{
+#research .research-body .research-carousel .card .card-body{
     padding: 30px;
-    height: 100%;
+    height: 600px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
 } 
-#research .research-body .carousel .card .card-body .paper-title{
+#research .research-body .research-carousel .card .card-body .paper-title{
     font-size: 30px;
     font-weight: 600;
+    height: 100px;
     text-align: center;
 }
-#research .research-body .carousel .card .card-body .summary{
-    padding-top: 30px;
+#research .research-body .research-carousel .card .card-body .summary{
+    height: 450px;
+    padding-top: 20px;
     font-size: 20px;
     text-align: justify;
+}
+
+#research .research-body .card .card-body .card-btns{
+    padding-top: 50px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+.paper-icon,
+.github-icon{
+    padding: 0 30px;
+    width: 20px;
+    height: 50px;
 }
 .owl-dots{
     text-align: center;
@@ -310,20 +327,6 @@ section {
 .owl-dot:hover{
     background: teal!important;
 }
-#research .research-body .card .card-body .card-btns{
-    padding-top: 50px;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} 
-.paper-icon,
-.github-icon{
-    padding: 0 30px;
-    width: 20px;
-    height: 50px;
-}
 
 
 /* projects section  */
@@ -344,15 +347,57 @@ section {
 
 /* responsive media query  */
 
-@media (max-width: 900px) {
+@media (max-width: 999px) {
     #about .about-body .info .info-text {
         margin: 20px;
         font-size: 13px;
         text-align: justify;
     }
+    #research .research-body .research-carousel .card .card-body{
+        height: 550px;
+    }
+    #research .research-body .research-carousel .card .card-body .paper-title{
+        height: 75px;
+        padding-top: 5px;
+        font-size: 25px;
+    }
+    #research .research-body .research-carousel .card .card-body .summary{
+        height: 300px;
+        font-size: 18px;
+        text-align: justify;
+    }
+    #research .research-body .card .card-body .card-btns{
+        padding-top: 20px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } 
+    .owl-dots{
+        text-align: center;
+        margin-top: 20px;
+    }
+    .owl-dot{
+        height: 13px;
+        width: 13px;
+        margin: 0 5px;
+        outline: none!important;
+        border-radius: 50%;
+        border: 2px solid teal!important;
+        transition: all 0.3s ease;
+    }
+    .owl-dot.active{
+        width: 35px;
+        border-radius: 14px;
+    }
+    .owl-dot.active,
+    .owl-dot:hover{
+        background: teal!important;
+    }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 780px) {
     .bar1,
     .bar2,
     .bar3 {
@@ -371,9 +416,11 @@ section {
         justify-content: center;
         align-items: center;
         transition: all 0.3s;
+        z-index: 999;
     }
     .navbar ul.active {
         left: 0%;
+        z-index: 999;
     }
     .navbar ul li a {
         font-size: 30px;
@@ -406,6 +453,29 @@ section {
     #about .about-body .info .dwnld-cv:hover {
         background-color: coral;
     }
+    #research .research-body{
+        height: 80%;
+        z-index: 0;
+    }
+    #research .research-body .research-carousel .card .card-body .paper-title{
+        height: 60px;
+        padding-top: 5px;
+        font-size: 20px;
+    }
+    #research .research-body .research-carousel .card .card-body .summary{
+        height: 300px;
+        font-size: 15px;
+        text-align: justify;
+    }
+    #research .research-body .card .card-body .card-btns{
+        padding-top: 20px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } 
+  
 }
 
 @media (max-width: 680px) {
@@ -430,9 +500,11 @@ section {
         justify-content: center;
         align-items: center;
         transition: all 0.3s;
+        z-index: 999;
     }
     .navbar ul.active {
         left: 0%;
+        z-index: 999;
     }
     .navbar ul li a {
         font-size: 30px;
@@ -497,39 +569,30 @@ section {
         font-size: 20px;
     }
     #research .research-body{
-        height: 80%;
+        height: 80%;  
+        z-index: 0;
     }
-    #research .research-body .carousel{
-        padding: 0;
-        margin: 0;
+    #research .research-body .research-carousel .card .card-body{
+        height: 450px;
     }
-    #research .research-body .carousel .card {
-        padding: 0;
-        margin: 0;
-        height: 400px
-    }
-    #research .research-body .carousel .card .card-body .paper-title{
+    #research .research-body .research-carousel .card .card-body .paper-title{
+        height: 60px;
+        padding-top: 5px;
         font-size: 20px;
-        /* padding-top: 5px; */
     }
-    #research .research-body .carousel .card .card-body .summary{
-        font-size:12px;
+    #research .research-body .research-carousel .card .card-body .summary{
+        height: 350px;
+        font-size: 12px;
+        text-align: justify;
     }
     #research .research-body .card .card-body .card-btns{
-        padding-top: 5px;
-        margin-bottom: 15px;
-        width: 50px;
-        height: 50px;
+        padding-top: 20px;
+        width: 60px;
+        height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
     } 
-    .paper-icon,
-    .github-icon{
-        padding: 0 30px;
-        width: 20px;
-        height: 50px;
-    }
 }
 
 @media (max-width: 380px) {
@@ -584,38 +647,27 @@ section {
         zoom: 0.5;
         -moz-transform: scale(0.5);
     }
-    #research .research-body{
-        height: 80%;
+    
+    #research .research-body .research-carousel .card .card-body{
+        height: 350px;
     }
-    #research .research-body .carousel{
-        padding: 0;
-        margin: 0;
-    }
-    #research .research-body .carousel .card {
-        padding: 0;
-        margin: 0;
-        height: 400px
-    }
-    #research .research-body .carousel .card .card-body .paper-title{
-        font-size: 20px;
+    #research .research-body .research-carousel .card .card-body .paper-title{
+        height: 40px;
         padding-top: 5px;
+        font-size: 15px;
     }
-    #research .research-body .carousel .card .card-body .summary{
-        font-size: 9px;
+    #research .research-body .research-carousel .card .card-body .summary{
+        height: 250px;
+        font-size: 11px;
+        text-align: justify;
     }
     #research .research-body .card .card-body .card-btns{
-        padding-bottom: 15px;
-        padding-top: 5px;
-        width: 20px;
+        padding-top: 20px;
+        width: 40px;
         height: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
-    } 
-    .paper-icon,
-    .github-icon{
-        padding: 0 30px;
-        width: 10px;
-        height: 15px;
     }
+    
 }
