@@ -90,4 +90,28 @@ $(document).ready(function () {
         $('.webdev').removeClass("active");
         $('.mldl').removeClass("active");
     });
+
+    //mldl carousel
+    $('.proeject-card').owlCarousel({
+        margin: 50,
+        loop: true,
+        autoplayTimeOut: 1000,
+        autoplayHoverPause: true,
+        dots: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: false,
+            },
+            600: {
+                items: 1,
+                nav: false
+            },
+            1000: {
+                items: 2,
+                nav: false,
+            }
+        }
+    });
+
 });

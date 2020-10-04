@@ -295,17 +295,15 @@ section {
 
 #research .research-body .card .card-body .card-btns{
     padding-top: 50px;
-    width: 50px;
-    height: 50px;
+    /* width: 50%; */
     display: flex;
     align-items: center;
     justify-content: center;
 } 
-.paper-icon,
-.github-icon{
+#research .paper-icon,
+#research .github-icon{
     padding: 0 30px;
-    width: 20px;
-    height: 50px;
+    font-size: 50px;
 }
 .owl-dots{
     text-align: center;
@@ -343,11 +341,12 @@ section {
     margin-top: 25px;
     font-weight: 600;
     font-size: 40px;
+    padding: 20px;
 }
 
 #projects .projects-body {
     width: 80%;
-    height: 80%;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -358,6 +357,7 @@ section {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    padding: 20px;
 }
 .mldl,
 .appdev,
@@ -384,18 +384,18 @@ section {
 .appdev.active,
 .webdev.active,
 .miscprojects.active{
-    background: coral;
     color: #333333;
     font-weight: 600;
+    background: coral;
 }
 .mldlbody,
 .appdevbody,
 .webdevbody,
 .miscbody{
-    margin: 25px;
+    /* margin: 25px; */
+    padding-top: 30px;
     width: 100%;
     height:100%;
-    background: coral;
 }
 
 .appdevbody,
@@ -404,6 +404,42 @@ section {
     display:none;
 }
 
+.mldlbody .project-title,
+.appdevbody .project-title,
+.webdevbody .project-title,
+.miscbody .project-title{
+    font-size: 25px;
+    font-weight: 600;
+    height: 75px;
+    text-align: center;
+}
+
+.mldlbody .project-desc,
+.appdevbody .project-desc,
+.webdevbody .project-desc,
+.miscbody .project-desc{
+    height: 300px;
+    padding-top: 20px;
+    font-size: 15px;
+    text-align: justify;
+}
+.mldlbody .card .card-body,
+.appdevbody .card .card-body,
+.webdevbody .card .card-body,
+.miscbody .card .card-body{
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.mldlbody i,
+.appdevbody i,
+.webdevbody i,
+.miscbody i{
+    font-size: 50px;
+}
 
 /* contact section  */
 
@@ -528,6 +564,31 @@ section {
         align-items: center;
         justify-content: center;
     } 
+    .mldlbody,
+    .appdevbody,
+    .webdevbody,
+    .miscbody{
+        margin: 0;
+        padding: 0;
+        z-index: 0;
+    }
+    .mldlbody .card-body,
+    .appdevbody .card-body,
+    .webdevbody .card-body,
+    .miscbody .card-body{
+        margin: 0;
+        padding: 20px;
+        height: 60vh;
+        font-size: 15px;
+        text-align: justify;
+    }
+    .mldlbody .card-body .project-title,
+    .appdevbody .card-body .project-title,
+    .webdevbody .card-body .project-title,
+    .miscbody .card-body .project-title{
+        padding: 0;
+        margin: 0;
+    }
   
 }
 
@@ -582,7 +643,8 @@ section {
     }
     #about .title,
     #skills .title ,
-    #research .title{
+    #research .title,
+    #projects .title{
         padding: 0;
         margin: 0;
     }
@@ -634,18 +696,21 @@ section {
     #research .research-body{
         height: 80%;  
         z-index: 0;
+        justify-content: start;
+        padding-top: ;
     }
     
     #research .research-body .research-carousel .card .card-body{
-        height: 380px;
+        height: 450px;
     }
     #research .research-body .research-carousel .card .card-body .paper-title{
-        height: 60px;
+        height: 100px;
+        width: 100%;
         padding-top: 5px;
         font-size: 20px;
     }
     #research .research-body .research-carousel .card .card-body .summary{
-        height: 350px;
+        height: 380px;
         font-size: 12px;
         text-align: justify;
     }
@@ -657,6 +722,44 @@ section {
         align-items: center;
         justify-content: center;
     } 
+    #projects .project-types{
+        padding: 10px; 
+    }
+    .mldl,
+    .appdev,
+    .webdev,
+    .miscprojects{
+        font-size: 11px;
+        height: 30px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mldlbody,
+    .appdevbody,
+    .webdevbody, 
+    .miscbody{
+        z-index: 0;
+        /* height: 500px; */
+    }
+    .mldlbody .card-body,
+    .appdevbody .card-body,
+    .webdevbody .card-body,
+    .miscbody .card-body{
+        margin: 0;
+        font-size: 15px;
+        text-align: justify;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .mldlbody .card-body .project-desc,
+    .appdevbody .card-body .project-desc,
+    .webdevbody .card-body .project-desc,
+    .miscbody .card-body .project-desc{
+        font-size: 12px;
+        height: 200px;
+    }
 }
 
 @media (max-width: 380px) {
@@ -733,9 +836,38 @@ section {
         align-items: center;
         justify-content: center;
     }
-    .paper-icon,
-    .github-icon{
+    #research .paper-icon,
+    #research .github-icon{
         width: 20px;
         height: 30px;
+    }
+    .mldlbody,
+    .appdevbody,
+    .webdevbody, 
+    .miscbody{
+        z-index: 0;
+    }
+    
+    .mldlbody .card-body,
+    .appdevbody .card-body,
+    .webdevbody .card-body,
+    .miscbody .card-body{
+        margin: 0;
+        padding: 5px;
+        height: 60vh;
+        text-align: justify;
+    }
+    .mldlbody .card-body .project-desc,
+    .appdevbody .card-body .project-desc,
+    .webdevbody .card-body .project-desc,
+    .miscbody .card-body .project-desc{
+        font-size: 11px;
+        height: 200px;
+    }
+    .mldlbody i,
+    .appdevbody i,
+    .webdevbody i,
+    .miscbody i{
+        font-size: 30px;
     }
 }
