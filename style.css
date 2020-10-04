@@ -757,8 +757,8 @@ section {
     .appdevbody .card-body .project-desc,
     .webdevbody .card-body .project-desc,
     .miscbody .card-body .project-desc{
-        font-size: 12px;
-        height: 200px;
+        font-size: 11px;
+        height: 250px;
     }
 }
 
