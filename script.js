@@ -21,7 +21,7 @@ $(document).ready(function () {
     // owl carousel script
     $('.research-carousel').owlCarousel({
         margin: 20,
-        loop: true,
+        loop: false,
         autoplayTimeOut: 1000,
         autoplayHoverPause: true,
         dots: true,
@@ -94,7 +94,7 @@ $(document).ready(function () {
     //mldl carousel
     $('.proeject-card').owlCarousel({
         margin: 50,
-        loop: true,
+        loop: false,
         autoplayTimeOut: 1000,
         autoplayHoverPause: true,
         dots: true,

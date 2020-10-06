@@ -327,6 +327,16 @@ section {
     background: teal!important;
 }
 
+/* potato styling  */
+
+.potats-img img{
+    object-fit: contain;
+    width: 100%;
+    height: 250px;
+}
+.wait-for-more{
+    text-align: center;
+}
 
 /* projects section  */
 
