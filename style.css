@@ -10,6 +10,17 @@ body {
     height: 100vh;
     overflow: hidden
 }
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover 
+{
+     color:white; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
 
 .container {
     width: 100%;
