@@ -1,509 +1,325 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto+Mono:wght@400;600&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background: #333333;
-    line-height: 1.6;
-    height: 100vh;
-    overflow: hidden
-}
-
-a {
-    color: white;
-    text-decoration: none;
-}
-
-a:hover {
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.container {
-    width: 100%;
-    height: 100%;
-    /* css smooth scroll */
-    overflow-x: hidden;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-}
-
-
-/* nav bar styling */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    width: 100%;
-    height: 50;
-    display: flex;
-    font-family: 'Montserrat', Verdana;
-    font-weight: 600;
-    background: teal;
-}
-
-.bar1,
-.bar2,
-.bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: white;
-    margin: 10px 0px 10px 15px;
-    /* padding: 6px; */
-    transition: 0.3s;
-    display: none;
-}
-
-.navbar ul {
-    display: flex;
-    list-style: none;
-    width: 100%;
-    justify-content: center;
-}
-
-.navbar ul li {
-    margin: 0 1rem;
-    padding: 1rem;
-}
-
-.navbar ul li a {
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s ease;
-}
-
-.navbar ul li a:hover {
-    color: coral;
-}
-
-
-/* section style */
-
-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    scroll-snap-align: center;
-    font-family: 'Roboto Mono', sans-serif;
-}
-
-
-/* home section  */
-
-#home {
-    background-color: #333333;
-    color: white;
-    padding-left: 25%;
-    align-items: flex-start;
-}
-
-.home-content .text1 {
-    font-size: 75px;
-    font-weight: 600;
-    color: coral;
-}
-
-.home-content .text2 {
-    font-size: 40px;
-}
-
-.home-content .text2 span {
-    font-family: 'Montserrat', Verdana;
-    color: coral;
-    font-weight: 600;
-}
-
-
-/* about section  */
-
-#about {
-    background-color: white;
-    color: #333333
-}
-
-#about .title {
-    font-family: 'Montserrat', Verdana;
-    color: #333333;
-    margin-top: 25px;
-    font-weight: 600;
-    font-size: 40px;
-}
-
-#about .about-body {
-    width: 90%;
-    height: 80%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-#about .about-body .my-img {
-    width: 50%;
-    height: 85%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#about .about-body .my-img img {
-    width: 400px;
-    height: 600px;
-    object-fit: contain;
-}
-
-#about .about-body .seperator {
-    width: 5px;
-    height: 100%;
-    background: coral;
-}
-
-#about .about-body .info {
-    width: 50%;
-    height: 85%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-#about .about-body .info .info-text {
-    margin: 30px;
-    font-size: 15px;
-    text-align: justify;
-}
-
-#about .about-body .info .dwnld-cv {
-    margin-top: 15px;
-    border-radius: 25px;
-    border: 3px solid coral;
-    padding: 20px;
-    width: 150px;
-    font-family: 'Montserrat', Verdana;
-    font-weight: 600;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-#about .about-body .info .dwnld-cv:hover {
-    background-color: coral;
-}
-
-
-/* skills section  */
-
-#skills {
-    background-color: #333333;
-    color: white;
-}
-
-#skills .skills-body {
-    width: 90%;
-    height: 80%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-}
-
-#skills .skills-body .pie-charts-info {
-    width: 100%;
-    font-family: 'Roboto Mono', sans-serif;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-}
-
-#skills .skills-body .pie-charts-info .piechart {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-}
-
-#skills .skills-body .pie-charts-info .piechart p {
-    font-size: 30px;
-    padding-top: 15px;
-}
-
-.pie {
-    size: 100px;
-}
-
-#skills .title {
-    font-family: 'Montserrat', Verdana;
-    color: white;
-    margin-top: 25px;
-    font-weight: 600;
-    font-size: 40px;
-}
-
-#skills p {
-    text-align: justify;
-}
-
-
-/* research section  */
-
-#research {
-    background-color: white;
-    color: #333333;
-}
-
-#research .title {
-    font-family: 'Montserrat', Verdana;
-    color: #333333;
-    margin-top: 25px;
-    font-weight: 600;
-    font-size: 40px;
-}
-
-#research .research-body {
-    width: 80%;
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 0;
-}
-
-#research .research-body .research-carousel {
-    width: 100%;
-    height: 80%
-}
-
-#research .research-body .research-carousel .card {
-    /* width: 90%; */
-    background: #333333;
-    color: white;
-}
-
-#research .research-body .research-carousel .card .card-body {
-    padding: 15px;
-    height: 480px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-}
-
-#research .research-body .research-carousel .card .card-body .paper-title {
-    font-size: 25px;
-    font-weight: 600;
-    height: 75px;
-    text-align: center;
-}
-
-#research .research-body .research-carousel .card .card-body .summary {
-    height: 250px;
-    padding-top: 20px;
-    font-size: 15px;
-    text-align: justify;
-}
-
-#research .research-body .card .card-body .card-btns {
-    padding-top: 50px;
-    /* width: 50%; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#research .paper-icon,
-#research .github-icon {
-    padding: 0 30px;
-    font-size: 50px;
-}
-
-.owl-dots {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.owl-dot {
-    height: 13px;
-    width: 13px;
-    margin: 0 5px;
-    outline: none!important;
-    border-radius: 50%;
-    border: 2px solid teal!important;
-    transition: all 0.3s ease;
-}
-
-.owl-dot.active {
-    width: 35px;
-    border-radius: 14px;
-}
-
-.owl-dot.active,
-.owl-dot:hover {
-    background: teal!important;
-}
-
-
-/* potato styling  */
-
-.potats-img img {
-    object-fit: contain;
-    width: 100%;
-    height: 250px;
-}
-
-.wait-for-more {
-    text-align: center;
-}
-
-
-/* projects section  */
-
-#projects {
-    background-color: #333333;
-    color: white;
-}
-
-#projects .title {
-    font-family: 'Montserrat', Verdana;
-    color: white;
-    margin-top: 25px;
-    font-weight: 600;
-    font-size: 40px;
-    padding: 20px;
-}
-
-#projects .projects-body {
-    width: 80%;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-#projects .projects-body .project-types {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 20px;
-}
-
-.mldl,
-.appdev,
-.webdev,
-.miscprojects {
-    border: solid 3px coral;
-    padding: 5px 15px;
-    height: 30px;
-    width: 75px;
-    text-align: center;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.mldl:hover,
-.appdev:hover,
-.webdev:hover,
-.miscprojects:hover {
-    background: coral;
-    color: #333333;
-    font-weight: 600;
-}
-
-.mldl.active,
-.appdev.active,
-.webdev.active,
-.miscprojects.active {
-    color: #333333;
-    font-weight: 600;
-    background: coral;
-}
-
-.mldlbody,
-.appdevbody,
-.webdevbody,
-.miscbody {
-    /* margin: 25px; */
-    padding-top: 30px;
-    width: 100%;
-    height: 100%;
-}
-
-.appdevbody,
-.webdevbody,
-.miscbody {
-    display: none;
-}
-
-.mldlbody .project-title,
-.appdevbody .project-title,
-.webdevbody .project-title,
-.miscbody .project-title {
-    font-size: 25px;
-    font-weight: 600;
-    height: 75px;
-    text-align: center;
-}
-
-.mldlbody .project-desc,
-.appdevbody .project-desc,
-.webdevbody .project-desc,
-.miscbody .project-desc {
-    height: 300px;
-    padding-top: 20px;
-    font-size: 15px;
-    text-align: justify;
-}
-
-.mldlbody .card .card-body,
-.appdevbody .card .card-body,
-.webdevbody .card .card-body,
-.miscbody .card .card-body {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    flex-direction: column;
-}
-
-#projects .play-icon,
-#projects .github-icon {
-    padding: 0 30px;
-    font-size: 50px;
-}
-
-
-/* contact section  */
-
-#contact {
-    background-color: white;
-    color: #333333
-}
-
-
-/* responsive media query  */
-
-@media (max-width: 999px) {
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto+Mono:wght@400;600&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        background: #333333;
+        line-height: 1.6;
+        height: 100vh;
+        overflow: hidden
+    }
+    
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .container {
+        width: 100%;
+        height: 100%;
+        /* css smooth scroll */
+        overflow-x: hidden;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
+    }
+    /* nav bar styling */
+    
+    .navbar {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        height: 50;
+        display: flex;
+        font-family: 'Montserrat', Verdana;
+        font-weight: 600;
+        background: teal;
+    }
+    
+    .bar1,
+    .bar2,
+    .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: white;
+        margin: 10px 0px 10px 15px;
+        /* padding: 6px; */
+        transition: 0.3s;
+        display: none;
+    }
+    
+    .navbar ul {
+        display: flex;
+        list-style: none;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .navbar ul li {
+        margin: 0 1rem;
+        padding: 1rem;
+    }
+    
+    .navbar ul li a {
+        text-decoration: none;
+        color: white;
+        transition: color 0.3s ease;
+    }
+    
+    .navbar ul li a:hover {
+        color: coral;
+    }
+    /* section style */
+    
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        scroll-snap-align: center;
+        font-family: 'Roboto Mono', sans-serif;
+    }
+    /* home section  */
+    
+    #home {
+        background-color: #333333;
+        color: white;
+        padding-left: 25%;
+        align-items: flex-start;
+    }
+    
+    .home-content .text1 {
+        font-size: 75px;
+        font-weight: 600;
+        color: coral;
+    }
+    
+    .home-content .text2 {
+        font-size: 40px;
+    }
+    
+    .home-content .text2 span {
+        font-family: 'Montserrat', Verdana;
+        color: coral;
+        font-weight: 600;
+    }
+    /* about section  */
+    
+    #about {
+        background-color: white;
+        color: #333333
+    }
+    
+    #about .title {
+        font-family: 'Montserrat', Verdana;
+        color: #333333;
+        margin-top: 25px;
+        font-weight: 600;
+        font-size: 40px;
+    }
+    
+    #about .about-body {
+        width: 90%;
+        height: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    #about .about-body .my-img {
+        width: 50%;
+        height: 85%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #about .about-body .my-img img {
+        width: 400px;
+        height: 600px;
+        object-fit: contain;
+    }
+    
+    #about .about-body .seperator {
+        width: 5px;
+        height: 100%;
+        background: coral;
+    }
+    
+    #about .about-body .info {
+        width: 50%;
+        height: 85%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
     #about .about-body .info .info-text {
-        margin: 20px;
-        font-size: 13px;
+        margin: 30px;
+        font-size: 15px;
         text-align: justify;
     }
-    #research .research-body .research-carousel .card .card-body {
-        height: 400px;
+    
+    #about .about-body .info .dwnld-cv {
+        margin-top: 15px;
+        border-radius: 25px;
+        border: 3px solid coral;
+        padding: 20px;
+        width: 150px;
+        font-family: 'Montserrat', Verdana;
+        font-weight: 600;
+        text-align: center;
+        transition: all 0.3s ease;
     }
+    
+    #about .about-body .info .dwnld-cv a {
+        color: #333333;
+    }
+    
+    #about .about-body .info .dwnld-cv:hover {
+        background-color: coral;
+    }
+    /* skills section  */
+    
+    #skills {
+        background-color: #333333;
+        color: white;
+    }
+    
+    #skills .skills-body {
+        width: 90%;
+        height: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    #skills .skills-body .pie-charts-info {
+        width: 100%;
+        font-family: 'Roboto Mono', sans-serif;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+    }
+    
+    #skills .skills-body .pie-charts-info .piechart {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    #skills .skills-body .pie-charts-info .piechart p {
+        font-size: 30px;
+        padding-top: 15px;
+    }
+    
+    .pie {
+        size: 100px;
+    }
+    
+    #skills .title {
+        font-family: 'Montserrat', Verdana;
+        color: white;
+        margin-top: 25px;
+        font-weight: 600;
+        font-size: 40px;
+    }
+    
+    #skills p {
+        text-align: justify;
+    }
+    /* research section  */
+    
+    #research {
+        background-color: white;
+        color: #333333;
+    }
+    
+    #research .title {
+        font-family: 'Montserrat', Verdana;
+        color: #333333;
+        margin-top: 25px;
+        font-weight: 600;
+        font-size: 40px;
+    }
+    
+    #research .research-body {
+        width: 80%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 0;
+    }
+    
+    #research .research-body .research-carousel {
+        width: 100%;
+        height: 80%
+    }
+    
+    #research .research-body .research-carousel .card {
+        /* width: 90%; */
+        background: #333333;
+        color: white;
+    }
+    
+    #research .research-body .research-carousel .card .card-body {
+        padding: 15px;
+        height: 480px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    #research .research-body .research-carousel .card .card-body .paper-title {
+        font-size: 25px;
+        font-weight: 600;
+        height: 75px;
+        text-align: center;
+    }
+    
+    #research .research-body .research-carousel .card .card-body .summary {
+        height: 250px;
+        padding-top: 20px;
+        font-size: 15px;
+        text-align: justify;
+    }
+    
+    #research .research-body .card .card-body .card-btns {
+        padding-top: 50px;
+        /* width: 50%; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #research .paper-icon,
+    #research .github-icon {
+        padding: 0 30px;
+        font-size: 50px;
+    }
+    
     .owl-dots {
         text-align: center;
         margin-top: 20px;
     }
+    
     .owl-dot {
         height: 13px;
         width: 13px;
@@ -513,411 +329,578 @@ section {
         border: 2px solid teal!important;
         transition: all 0.3s ease;
     }
+    
     .owl-dot.active {
         width: 35px;
         border-radius: 14px;
     }
+    
     .owl-dot.active,
     .owl-dot:hover {
         background: teal!important;
     }
-}
-
-@media (max-width: 780px) {
-    .bar1,
-    .bar2,
-    .bar3 {
-        display: block;
-        z-index: 999;
-    }
-    .navbar ul {
-        position: fixed;
-        z-index: 0;
-        height: 100vh;
-        left: -100%;
-        top: 50px;
-        background: black;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.3s;
-        z-index: 999;
-    }
-    .navbar ul.active {
-        left: 0%;
-        z-index: 999;
-    }
-    .navbar ul li a {
-        font-size: 30px;
-    }
-    #home {
-        padding-left: 5%;
-        align-items: flex-start;
-    }
-    .home-content .text1 {
-        font-size: 55px;
-        font-weight: 600;
-        color: coral;
-    }
-    .home-content .text2 {
-        font-size: 30px;
-    }
-    #about .about-body .my-img img {
-        width: 300px;
-        height: 500px;
+    /* potato styling  */
+    
+    .potats-img img {
         object-fit: contain;
-    }
-    #about .about-body .info {
-        width: 90%;
-        height: 80%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    #about .about-body .info .dwnld-cv:hover {
-        background-color: coral;
-    }
-    #research .research-body {
-        height: 80%;
-        z-index: 0;
-    }
-    #research .research-body .research-carousel .card .card-body {
-        height: 350px;
-    }
-    #research .research-body .research-carousel .card .card-body .paper-title {
-        height: 30px;
-        padding-top: 5px;
-        font-size: 20px;
-    }
-    #research .research-body .research-carousel .card .card-body .summary {
+        width: 100%;
         height: 250px;
-        font-size: 15px;
-        text-align: justify;
     }
-    #research .research-body .card .card-body .card-btns {
-        padding-top: 20px;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    
+    .wait-for-more {
+        text-align: center;
     }
-    .mldlbody,
-    .appdevbody,
-    .webdevbody,
-    .miscbody {
-        margin: 0;
-        padding: 0;
-        z-index: 0;
+    /* projects section  */
+    
+    #projects {
+        background-color: #333333;
+        color: white;
     }
-    .mldlbody .card-body,
-    .appdevbody .card-body,
-    .webdevbody .card-body,
-    .miscbody .card-body {
-        margin: 0;
-        padding: 20px;
-        height: 60vh;
-        font-size: 15px;
-        text-align: justify;
-    }
-    .mldlbody .card-body .project-title,
-    .appdevbody .card-body .project-title,
-    .webdevbody .card-body .project-title,
-    .miscbody .card-body .project-title {
-        padding: 0;
-        margin: 0;
-    }
-    #research .paper-icon,
-    #research .github-icon,
-    #projects .play-icon,
-    #projects .github-icon {
-        font-size: 40px;
-    }
-}
-
-@media (max-width: 680px) {
-    section {
-        padding-top: 50px;
-    }
-    .bar1,
-    .bar2,
-    .bar3 {
-        display: block;
-        z-index: 999;
-    }
-    .navbar ul {
-        position: fixed;
-        z-index: 0;
-        height: 100vh;
-        left: -100%;
-        top: 50px;
-        background: black;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.3s;
-        z-index: 999;
-    }
-    .navbar ul.active {
-        left: 0%;
-        z-index: 999;
-    }
-    .navbar ul li a {
-        font-size: 30px;
-    }
-    #home {
-        padding-left: 5%;
-        align-items: flex-start;
-    }
-    #home .home-content .text1 {
-        font-size: 45px;
-        font-weight: 600;
-        color: coral;
-    }
-    #home .home-content .text2 {
-        font-size: 20px;
-    }
-    #about .about-body .my-img {
-        display: none;
-    }
-    #about .about-body .seperator {
-        display: none;
-    }
-    #about .title,
-    #skills .title,
-    #research .title,
+    
     #projects .title {
-        padding: 0;
-        margin: 0;
+        font-family: 'Montserrat', Verdana;
+        color: white;
+        margin-top: 25px;
+        font-weight: 600;
+        font-size: 40px;
+        padding: 20px;
     }
-    #about .about-body,
-    #skills .skills-body,
-    #research .research-body {
-        padding: 0;
-        margin: 0;
+    
+    #projects .projects-body {
+        width: 80%;
+        height: 80vh;
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-    }
-    #about .about-body .info {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: start;
         align-items: center;
         flex-direction: column;
     }
-    #about .about-body .info .info-text,
-    #skills p {
-        font-size: 13px;
-        /* padding: 10px; */
-        margin-bottom: 15px;
-        text-align: justify;
-    }
-    #about .about-body .info .dwnld-cv {
-        padding: 5px;
-        background-color: #ff7f50;
-    }
-    #about .about-body .info .dwnld-cv:hover {
-        background-color: none;
-    }
-    #skills .skills-body {
-        padding-top: 10px;
-        justify-content: start;
-    }
-    #skills .skills-body .pie-charts-info .piechart p {
-        font-size: 20px;
-    }
-    #skills .skills-body .pie-charts-info {
-        margin-left: 20px;
-        margin-right: 20px;
-        zoom: 0.6;
-        -moz-transform: scale(0.6);
-    }
-    #research .research-body {
-        height: 80%;
-        z-index: 0;
-        justify-content: start;
-        padding-top: ;
-    }
-    #research .research-body .research-carousel .card .card-body {
-        height: 450px;
-    }
-    #research .research-body .research-carousel .card .card-body .paper-title {
-        height: 100px;
+    
+    #projects .projects-body .project-types {
         width: 100%;
-        padding-top: 5px;
-        font-size: 20px;
-    }
-    #research .research-body .research-carousel .card .card-body .summary {
-        height: 380px;
-        font-size: 12px;
-        text-align: justify;
-    }
-    #research .research-body .card .card-body .card-btns {
-        padding-top: 20px;
-        width: 60px;
-        height: 40px;
         display: flex;
+        justify-content: space-evenly;
         align-items: center;
-        justify-content: center;
+        padding: 20px;
     }
-    #projects .project-types {
-        padding: 10px;
-    }
+    
     .mldl,
     .appdev,
     .webdev,
     .miscprojects {
-        font-size: 11px;
+        border: solid 3px coral;
+        padding: 5px 15px;
         height: 30px;
-        width: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        width: 75px;
+        text-align: center;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
     }
+    
+    .mldl:hover,
+    .appdev:hover,
+    .webdev:hover,
+    .miscprojects:hover {
+        background: coral;
+        color: #333333;
+        font-weight: 600;
+    }
+    
+    .mldl.active,
+    .appdev.active,
+    .webdev.active,
+    .miscprojects.active {
+        color: #333333;
+        font-weight: 600;
+        background: coral;
+    }
+    
     .mldlbody,
     .appdevbody,
     .webdevbody,
     .miscbody {
-        z-index: 0;
-        /* height: 500px; */
-    }
-    .mldlbody .card-body,
-    .appdevbody .card-body,
-    .webdevbody .card-body,
-    .miscbody .card-body {
-        margin: 0;
-        font-size: 15px;
-        text-align: justify;
-        display: flex;
-        justify-content: space-evenly;
-    }
-    .mldlbody .card-body .project-desc,
-    .appdevbody .card-body .project-desc,
-    .webdevbody .card-body .project-desc,
-    .miscbody .card-body .project-desc {
-        font-size: 11px;
-        height: 250px;
-    }
-    #research .paper-icon,
-    #research .github-icon,
-    #projects .play-icon,
-    #projects .github-icon {
-        font-size: 30px;
-    }
-}
-
-@media (max-width: 380px) {
-    #about .title,
-    #skills .title,
-    #research .title {
-        font-size: 20px;
-        padding: 0;
-        margin: 0;
-    }
-    #about .about-body,
-    #skills .skills-body,
-    #research .research-body {
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    #about .about-body .my-img {
-        display: none;
-    }
-    #about .about-body .seperator {
-        display: none;
-    }
-    #about .about-body .info {
+        /* margin: 25px; */
+        padding-top: 30px;
         width: 100%;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
     }
-    #about .about-body .info .info-text,
-    #skills p {
-        font-size: 11px;
-        padding: 0;
-        text-align: justify;
-    }
-    #about .about-body .info .dwnld-cv {
-        margin-top: 0px;
-        padding: 5px;
-        background-color: coral;
-    }
-    #about .about-body .info .dwnld-cv:hover {
-        background-color: none;
-    }
-    #skills .skills-body .pie-charts-info {
-        margin-left: 20px;
-        margin-right: 20px;
-        zoom: 0.5;
-        -moz-transform: scale(0.5);
-    }
-    #research .research-body .research-carousel .card .card-body {
-        height: 350px;
-    }
-    #research .research-body .research-carousel .card .card-body .paper-title {
-        height: 40px;
-        padding-top: 5px;
-        font-size: 15px;
-    }
-    #research .research-body .research-carousel .card .card-body .summary {
-        height: 250px;
-        font-size: 11px;
-        text-align: justify;
-    }
-    #research .research-body .card .card-body .card-btns {
-        padding: 40px 0;
-        width: 30px;
-        height: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    #research .paper-icon,
-    #research .github-icon,
-    #projects .play-icon,
-    #projects .github-icon {
-        width: 20px;
-        height: 30px;
-    }
-    .mldlbody,
+    
     .appdevbody,
     .webdevbody,
     .miscbody {
-        z-index: 0;
+        display: none;
     }
-    .mldlbody .card-body,
-    .appdevbody .card-body,
-    .webdevbody .card-body,
-    .miscbody .card-body {
-        margin: 0;
-        padding: 5px;
-        height: 60vh;
+    
+    .mldlbody .project-title,
+    .appdevbody .project-title,
+    .webdevbody .project-title,
+    .miscbody .project-title {
+        font-size: 25px;
+        font-weight: 600;
+        height: 75px;
+        text-align: center;
+    }
+    
+    .mldlbody .project-desc,
+    .appdevbody .project-desc,
+    .webdevbody .project-desc,
+    .miscbody .project-desc {
+        height: 300px;
+        padding-top: 20px;
+        font-size: 15px;
         text-align: justify;
     }
-    .mldlbody .card-body .project-desc,
-    .appdevbody .card-body .project-desc,
-    .webdevbody .card-body .project-desc,
-    .miscbody .card-body .project-desc {
-        font-size: 11px;
-        height: 200px;
+    
+    .mldlbody .card .card-body,
+    .appdevbody .card .card-body,
+    .webdevbody .card .card-body,
+    .miscbody .card .card-body {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
     }
-    .mldlbody i,
-    .appdevbody i,
-    .webdevbody i,
-    .miscbody i {
-        font-size: 30px;
+    
+    #projects .play-icon,
+    #projects .github-icon {
+        padding: 0 30px;
+        font-size: 50px;
     }
-}
+    /* contact section  */
+    
+    #contact {
+        background-color: white;
+        color: #333333
+    }
+    /* responsive media query  */
+    
+    @media (max-width: 999px) {
+        #about .about-body .info .info-text {
+            margin: 20px;
+            font-size: 13px;
+            text-align: justify;
+        }
+        #research .research-body .research-carousel .card .card-body {
+            height: 400px;
+        }
+        .owl-dots {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .owl-dot {
+            height: 13px;
+            width: 13px;
+            margin: 0 5px;
+            outline: none!important;
+            border-radius: 50%;
+            border: 2px solid teal!important;
+            transition: all 0.3s ease;
+        }
+        .owl-dot.active {
+            width: 35px;
+            border-radius: 14px;
+        }
+        .owl-dot.active,
+        .owl-dot:hover {
+            background: teal!important;
+        }
+    }
+    
+    @media (max-width: 780px) {
+        .bar1,
+        .bar2,
+        .bar3 {
+            display: block;
+            z-index: 999;
+        }
+        .navbar ul {
+            position: fixed;
+            z-index: 0;
+            height: 100vh;
+            left: -100%;
+            top: 50px;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        .navbar ul.active {
+            left: 0%;
+            z-index: 999;
+        }
+        .navbar ul li a {
+            font-size: 30px;
+        }
+        #home {
+            padding-left: 5%;
+            align-items: flex-start;
+        }
+        .home-content .text1 {
+            font-size: 55px;
+            font-weight: 600;
+            color: coral;
+        }
+        .home-content .text2 {
+            font-size: 30px;
+        }
+        #about .about-body .my-img img {
+            width: 300px;
+            height: 500px;
+            object-fit: contain;
+        }
+        #about .about-body .info {
+            width: 90%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #about .about-body .info .dwnld-cv:hover {
+            background-color: coral;
+        }
+        #research .research-body {
+            height: 80%;
+            z-index: 0;
+        }
+        #research .research-body .research-carousel .card .card-body {
+            height: 350px;
+        }
+        #research .research-body .research-carousel .card .card-body .paper-title {
+            height: 30px;
+            padding-top: 5px;
+            font-size: 20px;
+        }
+        #research .research-body .research-carousel .card .card-body .summary {
+            height: 250px;
+            font-size: 15px;
+            text-align: justify;
+        }
+        #research .research-body .card .card-body .card-btns {
+            padding-top: 20px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mldlbody,
+        .appdevbody,
+        .webdevbody,
+        .miscbody {
+            margin: 0;
+            padding: 0;
+            z-index: 0;
+        }
+        .mldlbody .card-body,
+        .appdevbody .card-body,
+        .webdevbody .card-body,
+        .miscbody .card-body {
+            margin: 0;
+            padding: 20px;
+            height: 60vh;
+            font-size: 15px;
+            text-align: justify;
+        }
+        .mldlbody .card-body .project-title,
+        .appdevbody .card-body .project-title,
+        .webdevbody .card-body .project-title,
+        .miscbody .card-body .project-title {
+            padding: 0;
+            margin: 0;
+        }
+        #research .paper-icon,
+        #research .github-icon,
+        #projects .play-icon,
+        #projects .github-icon {
+            font-size: 40px;
+        }
+    }
+    
+    @media (max-width: 680px) {
+        section {
+            padding-top: 50px;
+        }
+        .bar1,
+        .bar2,
+        .bar3 {
+            display: block;
+            z-index: 999;
+        }
+        .navbar ul {
+            position: fixed;
+            z-index: 0;
+            height: 100vh;
+            left: -100%;
+            top: 50px;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        .navbar ul.active {
+            left: 0%;
+            z-index: 999;
+        }
+        .navbar ul li a {
+            font-size: 30px;
+        }
+        #home {
+            padding-left: 5%;
+            align-items: flex-start;
+        }
+        #home .home-content .text1 {
+            font-size: 45px;
+            font-weight: 600;
+            color: coral;
+        }
+        #home .home-content .text2 {
+            font-size: 20px;
+        }
+        #about .about-body .my-img {
+            display: none;
+        }
+        #about .about-body .seperator {
+            display: none;
+        }
+        #about .title,
+        #skills .title,
+        #research .title,
+        #projects .title {
+            padding: 0;
+            margin: 0;
+        }
+        #about .about-body,
+        #skills .skills-body,
+        #research .research-body {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #about .about-body .info {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            flex-direction: column;
+        }
+        #about .about-body .info .info-text,
+        #skills p {
+            font-size: 13px;
+            /* padding: 10px; */
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        #about .about-body .info .dwnld-cv {
+            padding: 5px;
+            background-color: #ff7f50;
+        }
+        #about .about-body .info .dwnld-cv:hover {
+            background-color: none;
+        }
+        #skills .skills-body {
+            padding-top: 10px;
+            justify-content: start;
+        }
+        #skills .skills-body .pie-charts-info .piechart p {
+            font-size: 20px;
+        }
+        #skills .skills-body .pie-charts-info {
+            margin-left: 20px;
+            margin-right: 20px;
+            zoom: 0.6;
+            -moz-transform: scale(0.6);
+        }
+        #research .research-body {
+            height: 80%;
+            z-index: 0;
+            justify-content: start;
+        }
+        #research .research-body .research-carousel .card .card-body {
+            height: 450px;
+        }
+        #research .research-body .research-carousel .card .card-body .paper-title {
+            height: 100px;
+            width: 100%;
+            padding-top: 5px;
+            font-size: 20px;
+        }
+        #research .research-body .research-carousel .card .card-body .summary {
+            height: 380px;
+            font-size: 12px;
+            text-align: justify;
+        }
+        #research .research-body .card .card-body .card-btns {
+            padding-top: 20px;
+            width: 60px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #projects .project-types {
+            padding: 10px;
+        }
+        .mldl,
+        .appdev,
+        .webdev,
+        .miscprojects {
+            font-size: 11px;
+            height: 30px;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mldlbody,
+        .appdevbody,
+        .webdevbody,
+        .miscbody {
+            z-index: 0;
+            /* height: 500px; */
+        }
+        .mldlbody .card-body,
+        .appdevbody .card-body,
+        .webdevbody .card-body,
+        .miscbody .card-body {
+            margin: 0;
+            font-size: 15px;
+            text-align: justify;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .mldlbody .card-body .project-desc,
+        .appdevbody .card-body .project-desc,
+        .webdevbody .card-body .project-desc,
+        .miscbody .card-body .project-desc {
+            font-size: 11px;
+            height: 250px;
+        }
+        #research .paper-icon,
+        #research .github-icon,
+        #projects .play-icon,
+        #projects .github-icon {
+            font-size: 30px;
+        }
+    }
+    
+    @media (max-width: 380px) {
+        #about .title,
+        #skills .title,
+        #research .title {
+            font-size: 20px;
+            padding: 0;
+            margin: 0;
+        }
+        #about .about-body,
+        #skills .skills-body,
+        #research .research-body {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #about .about-body .my-img {
+            display: none;
+        }
+        #about .about-body .seperator {
+            display: none;
+        }
+        #about .about-body .info {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #about .about-body .info .info-text,
+        #skills p {
+            font-size: 11px;
+            padding: 0;
+            text-align: justify;
+        }
+        #about .about-body .info .dwnld-cv {
+            margin-top: 0px;
+            padding: 5px;
+            background-color: coral;
+        }
+        #about .about-body .info .dwnld-cv:hover {
+            background-color: none;
+        }
+        #skills .skills-body .pie-charts-info {
+            margin-left: 20px;
+            margin-right: 20px;
+            zoom: 0.5;
+            -moz-transform: scale(0.5);
+        }
+        #research .research-body .research-carousel .card .card-body {
+            height: 350px;
+        }
+        #research .research-body .research-carousel .card .card-body .paper-title {
+            height: 40px;
+            padding-top: 5px;
+            font-size: 15px;
+        }
+        #research .research-body .research-carousel .card .card-body .summary {
+            height: 250px;
+            font-size: 11px;
+            text-align: justify;
+        }
+        #research .research-body .card .card-body .card-btns {
+            padding: 40px 0;
+            width: 30px;
+            height: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #research .paper-icon,
+        #research .github-icon,
+        #projects .play-icon,
+        #projects .github-icon {
+            width: 20px;
+            height: 30px;
+        }
+        .mldlbody,
+        .appdevbody,
+        .webdevbody,
+        .miscbody {
+            z-index: 0;
+        }
+        .mldlbody .card-body,
+        .appdevbody .card-body,
+        .webdevbody .card-body,
+        .miscbody .card-body {
+            margin: 0;
+            padding: 5px;
+            height: 60vh;
+            text-align: justify;
+        }
+        .mldlbody .card-body .project-desc,
+        .appdevbody .card-body .project-desc,
+        .webdevbody .card-body .project-desc,
+        .miscbody .card-body .project-desc {
+            font-size: 11px;
+            height: 200px;
+        }
+        .mldlbody i,
+        .appdevbody i,
+        .webdevbody i,
+        .miscbody i {
+            font-size: 30px;
+        }
+    }
