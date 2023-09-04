@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "jajaja.jkt" "\0"
-            VALUE "FileDescription", "mysuperdupersite" "\0"
+            VALUE "CompanyName", "com.jkt_portfolio" "\0"
+            VALUE "FileDescription", "portfolio" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "mysuperdupersite" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 jajaja.jkt. All rights reserved." "\0"
-            VALUE "OriginalFilename", "mysuperdupersite.exe" "\0"
-            VALUE "ProductName", "mysuperdupersite" "\0"
+            VALUE "InternalName", "portfolio" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2023 com.jkt_portfolio. All rights reserved." "\0"
+            VALUE "OriginalFilename", "portfolio.exe" "\0"
+            VALUE "ProductName", "portfolio" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
