@@ -33,10 +33,6 @@
   <link rel="manifest" href="manifest.json">
 
   <script>
-      window.addEventListener('beforeinstallprompt', function (e) {
-        e.preventDefault();
-        return false;
-    });
     // The value below is injected by flutter build, do not touch.
     const serviceWorkerVersion = null;
   </script>
@@ -57,6 +53,10 @@
           });
         }
       });
+    });
+    window.addEventListener('beforeinstallprompt', function (e) {
+        e.preventDefault();
+        return false;
     });
   </script>
 </body>
