@@ -26,8 +26,8 @@ const RESOURCES = {"canvaskit/canvaskit.js": "5caccb235fad20e9b72ea6da5a0094e6",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "manifest.json": "d40c47d1c161f94dbcb13094d37f1f55",
-"index.html": "c8f866c88bfbc04c98bd3489391485f8",
-"/": "c8f866c88bfbc04c98bd3489391485f8"};
+"index.html": "6c9481017c7a795cb6da2f3c0c10b2f1",
+"/": "6c9481017c7a795cb6da2f3c0c10b2f1"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
