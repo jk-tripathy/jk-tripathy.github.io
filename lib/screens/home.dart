@@ -6,9 +6,10 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
-        body: ResponsiveUI(),
+        backgroundColor: Theme.of(context).primaryColorDark,
+        body: const ResponsiveUI(),
       ),
     );
   }
