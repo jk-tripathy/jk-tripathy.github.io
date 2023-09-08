@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
+import 'package:portfolio/screens/sections.dart';
 import 'package:portfolio/widgets/landing_screen_text.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class LandingPage extends StatelessWidget {
+  const LandingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class Home extends StatelessWidget {
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.6,
                     left: MediaQuery.of(context).size.width * 0.5,
-                    child: navButtion(context),
+                    child: navButton(context),
                   ),
                 ],
               );
@@ -38,7 +39,7 @@ class Home extends StatelessWidget {
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.7,
                     left: MediaQuery.of(context).size.width * 0.6,
-                    child: navButtion(context),
+                    child: navButton(context),
                   ),
                 ],
               );
@@ -49,21 +50,31 @@ class Home extends StatelessWidget {
     );
   }
 
-  Widget navButtion(context) {
-    return ElevatedButton(
-      onPressed: () {
-        // Button action
-      },
-      style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.hovered)) {
-            return Theme.of(context).focusColor;
-          }
-          return Theme.of(context).primaryColorDark;
-        }),
+  Widget navButton(context) {
+    return Hero(
+      tag: 'sectionsHero',
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            PageRouteBuilder(
+              transitionDuration: const Duration(milliseconds: 600),
+              reverseTransitionDuration: const Duration(milliseconds: 600),
+              pageBuilder: (_, __, ___) => const Sections(),
+            ),
+          );
+        },
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.resolveWith<Color>(
+              (Set<MaterialState> states) {
+            if (states.contains(MaterialState.hovered)) {
+              return Theme.of(context).focusColor;
+            }
+            return Theme.of(context).primaryColorDark;
+          }),
+        ),
+        child: const Text('Welcome in'),
       ),
-      child: const Text('Welcome in'),
     );
   }
 }
