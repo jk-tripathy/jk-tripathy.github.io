@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
-import 'package:portfolio/screens/landing_page.dart';
+import 'package:portfolio/widgets/landing_screen_text.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -10,32 +10,75 @@ class Home extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Theme.of(context).primaryColorDark,
-        body: LayoutBuilder(builder: (context, constraints) {
-          if (constraints.maxWidth < mobileWidth) {
-            // MOBILE
-            return Center(
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: MediaQuery.of(context).size.height * 0.8,
-                child: LandingPage(
-                  textBoxWidth: MediaQuery.of(context).size.width * 0.7,
-                ),
-              ),
-            );
-          } else {
-            // DESKTOP
-            return Center(
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: MediaQuery.of(context).size.width * 0.8,
-                child: LandingPage(
-                  textBoxWidth: MediaQuery.of(context).size.width * 0.6,
-                ),
-              ),
-            );
-          }
-        }),
+        body: Center(
+          child: LayoutBuilder(builder: (context, constraints) {
+            if (constraints.maxWidth < mobileWidth) {
+              // MOBILE
+              return Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  LandingScreenText(
+                    textBoxWidth: MediaQuery.of(context).size.width * 0.7,
+                  ),
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.6,
+                    left: MediaQuery.of(context).size.width * 0.5,
+                    child: navButtion(context),
+                  ),
+                ],
+              );
+            } else {
+              // DESKTOP
+              return Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  LandingScreenText(
+                    textBoxWidth: MediaQuery.of(context).size.width * 0.6,
+                  ),
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.7,
+                    left: MediaQuery.of(context).size.width * 0.6,
+                    child: navButtion(context),
+                  ),
+                ],
+              );
+            }
+          }),
+        ),
       ),
     );
   }
+
+  Widget navButtion(context) {
+    return ElevatedButton(
+      onPressed: () {
+        // Button action
+      },
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.hovered)) {
+            return Theme.of(context).focusColor;
+          }
+          return Theme.of(context).primaryColorDark;
+        }),
+      ),
+      child: const Text('Welcome in'),
+    );
+  }
 }
+
+
+// side: MaterialStateProperty.resolveWith<BorderSide>(
+//     (Set<MaterialState> states) {
+//   if (states.contains(MaterialState.hovered)) {
+//     return BorderSide(
+//       color: Theme.of(context).focusColor,
+//       width: 3,
+//     );
+//   }
+//   return BorderSide(
+//     color: Theme.of(context).primaryColorLight,
+//     width: 3,
+//   );
+// }),

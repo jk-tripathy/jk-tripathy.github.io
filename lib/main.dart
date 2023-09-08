@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColorDark: const Color(0xFF2B2D42),
         primaryColorLight: const Color(0xFFEDF2F4),
-        shadowColor: const Color(0xFF8D99AE),
+        shadowColor: const Color(0xFFB7BFCC),
         hintColor: const Color(0xFFEF233C),
         focusColor: const Color(0xFFD90429),
         useMaterial3: true,
@@ -37,6 +37,21 @@ class MyApp extends StatelessWidget {
             ),
             fontWeight: FontWeight.w400,
           ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+              overlayColor:
+                  MaterialStateProperty.all<Color>(Colors.transparent),
+              textStyle: MaterialStateProperty.all<TextStyle>(
+                TextStyle(
+                  fontFamily: 'Nunito',
+                  fontSize: min(
+                    MediaQuery.of(context).size.height * 0.035,
+                    MediaQuery.of(context).size.width * 0.04,
+                  ),
+                  fontWeight: FontWeight.w600,
+                ),
+              )),
         ),
       ),
       home: const Home(),

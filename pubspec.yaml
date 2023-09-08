@@ -79,6 +79,9 @@ flutter:
         - asset: assets/fonts/Nunito.ttf
         - asset: assets/fonts/Nunito-Italic.ttf
           style: italic
+    - family: Carrois
+      fonts:
+        - asset: assets/fonts/CarroisGothicSC-Regular.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
