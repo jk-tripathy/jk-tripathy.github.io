@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/home.dart';
+import 'package:portfolio/screens/landing_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,21 +40,36 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-              overlayColor:
-                  MaterialStateProperty.all<Color>(Colors.transparent),
-              textStyle: MaterialStateProperty.all<TextStyle>(
-                TextStyle(
-                  fontFamily: 'Nunito',
-                  fontSize: min(
-                    MediaQuery.of(context).size.height * 0.035,
-                    MediaQuery.of(context).size.width * 0.04,
-                  ),
-                  fontWeight: FontWeight.w600,
+            overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
+            textStyle: MaterialStateProperty.all<TextStyle>(
+              TextStyle(
+                fontFamily: 'Nunito',
+                fontSize: min(
+                  MediaQuery.of(context).size.height * 0.035,
+                  MediaQuery.of(context).size.width * 0.04,
                 ),
-              )),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: ButtonStyle(
+            overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
+            textStyle: MaterialStateProperty.all<TextStyle>(
+              TextStyle(
+                fontFamily: 'Nunito',
+                fontSize: min(
+                  MediaQuery.of(context).size.height * 0.03,
+                  MediaQuery.of(context).size.width * 0.035,
+                ),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
         ),
       ),
-      home: const Home(),
+      home: const LandingPage(),
     );
   }
 }
