@@ -1,3 +1,4 @@
+import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
 
@@ -67,7 +68,8 @@ class Sections extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () async => html.window
+                .open('https://github.com/jatinkarthik-tripathy/', "_blank"),
             child: Image.asset(
               width: imgDim,
               height: imgDim,
@@ -76,7 +78,8 @@ class Sections extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () async => html.window.open(
+                'https://www.linkedin.com/in/jatinkarthik-tripathy/', "_blank"),
             child: Image.asset(
               width: imgDim,
               height: imgDim,
