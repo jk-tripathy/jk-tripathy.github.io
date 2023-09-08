@@ -27,8 +27,8 @@ const RESOURCES = {"canvaskit/canvaskit.js": "5caccb235fad20e9b72ea6da5a0094e6",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "0bbab79efa382d3219497c9e82c74489",
-"/": "0bbab79efa382d3219497c9e82c74489",
+"index.html": "b48684d5e1ee6ddd5671fd80025df6e8",
+"/": "b48684d5e1ee6ddd5671fd80025df6e8",
 "manifest.json": "d40c47d1c161f94dbcb13094d37f1f55"};
 // The application shell files that are downloaded before a service worker can
 // start.
