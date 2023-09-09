@@ -6,7 +6,7 @@ class CircleOutlineContainer extends StatelessWidget {
   const CircleOutlineContainer({
     super.key,
     required this.text,
-    this.size = 150,
+    this.size = 120,
   });
 
   @override
