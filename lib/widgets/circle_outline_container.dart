@@ -37,6 +37,15 @@ class CircleOutlineContainer extends StatelessWidget {
                   pageBuilder: (_, __, ___) => DetailsView(
                     tag: tag,
                   ),
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    final tween = Tween(begin: 0.0, end: 1.0);
+                    final fadeAnimation = animation.drive(tween);
+                    return FadeTransition(
+                      opacity: fadeAnimation,
+                      child: child,
+                    );
+                  },
                 ),
               );
             },

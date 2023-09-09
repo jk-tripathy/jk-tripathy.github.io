@@ -61,6 +61,15 @@ class LandingPage extends StatelessWidget {
               transitionDuration: const Duration(milliseconds: 600),
               reverseTransitionDuration: const Duration(milliseconds: 600),
               pageBuilder: (_, __, ___) => const Sections(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                final tween = Tween(begin: 0.0, end: 1.0);
+                final fadeAnimation = animation.drive(tween);
+                return FadeTransition(
+                  opacity: fadeAnimation,
+                  child: child,
+                );
+              },
             ),
           );
         },
