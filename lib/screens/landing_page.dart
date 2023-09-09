@@ -78,18 +78,3 @@ class LandingPage extends StatelessWidget {
     );
   }
 }
-
-
-// side: MaterialStateProperty.resolveWith<BorderSide>(
-//     (Set<MaterialState> states) {
-//   if (states.contains(MaterialState.hovered)) {
-//     return BorderSide(
-//       color: Theme.of(context).focusColor,
-//       width: 3,
-//     );
-//   }
-//   return BorderSide(
-//     color: Theme.of(context).primaryColorLight,
-//     width: 3,
-//   );
-// }),

@@ -1,6 +1,8 @@
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
+import 'package:portfolio/widgets/circle_outline_container.dart';
+import 'package:portfolio/widgets/link_button.dart';
 
 class Sections extends StatelessWidget {
   const Sections({super.key});
@@ -42,6 +44,57 @@ class Sections extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.91,
+                child: Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      GestureDetector(
+                        onTap: () {},
+                        child: const CircleOutlineContainer(
+                          text: 'FUCK',
+                        ),
+                      ),
+                      Container(
+                        height: 15,
+                        width: 15,
+                        color: Theme.of(context).shadowColor,
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: const CircleOutlineContainer(
+                          text: 'FUCK',
+                        ),
+                      ),
+                      Container(
+                        height: 15,
+                        width: 15,
+                        color: Theme.of(context).shadowColor,
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: const CircleOutlineContainer(
+                          text: 'FUCK',
+                        ),
+                      ),
+                      Container(
+                        height: 15,
+                        width: 15,
+                        color: Theme.of(context).shadowColor,
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: const CircleOutlineContainer(
+                          text: 'FUCK',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),
@@ -67,34 +120,19 @@ class Sections extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          GestureDetector(
-            onTap: () async => html.window
-                .open('https://github.com/jatinkarthik-tripathy/', "_blank"),
-            child: Image.asset(
-              width: imgDim,
-              height: imgDim,
-              fit: BoxFit.cover,
-              'assets/img/github.png',
-            ),
+          LinkButton(
+            url: 'https://github.com/jatinkarthik-tripathy/',
+            img: 'assets/img/github.png',
+            imgDim: imgDim,
           ),
-          GestureDetector(
-            onTap: () async => html.window.open(
-                'https://www.linkedin.com/in/jatinkarthik-tripathy/', "_blank"),
-            child: Image.asset(
-              width: imgDim,
-              height: imgDim,
-              fit: BoxFit.cover,
-              'assets/img/linkedin.png',
-            ),
+          LinkButton(
+            url: 'https://www.linkedin.com/in/jatinkarthik-tripathy/',
+            img: 'assets/img/linkedin.png',
+            imgDim: imgDim,
           ),
-          GestureDetector(
-            onTap: () {},
-            child: Image.asset(
-              width: imgDim,
-              height: imgDim,
-              fit: BoxFit.cover,
-              'assets/img/cv.png',
-            ),
+          LinkButton(
+            img: 'assets/img/cv.png',
+            imgDim: imgDim,
           ),
         ],
       ),
