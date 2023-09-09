@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/data/dimensions.dart';
+import 'package:portfolio/widgets/link_button.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({

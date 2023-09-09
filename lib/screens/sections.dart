@@ -27,44 +27,36 @@ class Sections extends StatelessWidget {
                 child: Center(
                   child: LayoutBuilder(builder: (context, constraints) {
                     List<Widget> widgetList = [
-                      GestureDetector(
-                        onTap: () {},
-                        child: const CircleOutlineContainer(
-                          text: 'FUCK',
-                        ),
+                      const CircleOutlineContainer(
+                        tag: 'fuckHero1',
+                        text: 'FUCK',
                       ),
                       Container(
                         height: 15,
                         width: 15,
                         color: Theme.of(context).shadowColor,
                       ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const CircleOutlineContainer(
-                          text: 'FUCK',
-                        ),
+                      const CircleOutlineContainer(
+                        tag: 'fuckHero2',
+                        text: 'FUCK',
                       ),
                       Container(
                         height: 15,
                         width: 15,
                         color: Theme.of(context).shadowColor,
                       ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const CircleOutlineContainer(
-                          text: 'FUCK',
-                        ),
+                      const CircleOutlineContainer(
+                        tag: 'fuckHero3',
+                        text: 'FUCK',
                       ),
                       Container(
                         height: 15,
                         width: 15,
                         color: Theme.of(context).shadowColor,
                       ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const CircleOutlineContainer(
-                          text: 'FUCK',
-                        ),
+                      const CircleOutlineContainer(
+                        tag: 'fuckHero4',
+                        text: 'FUCK',
                       ),
                     ];
                     if (constraints.maxWidth < mobileWidth) {
