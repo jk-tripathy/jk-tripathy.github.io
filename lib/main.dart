@@ -8,7 +8,9 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
+  final zoomPageTransitionsBuilder = const ZoomPageTransitionsBuilder(
+    allowEnterRouteSnapshotting: false, // Disable entering route snapshotting
+  );
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

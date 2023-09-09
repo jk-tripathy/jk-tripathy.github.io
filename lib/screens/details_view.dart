@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
+import 'package:portfolio/widgets/half_circle_container.dart';
 import 'package:portfolio/widgets/top_bar.dart';
 
 class DetailsView extends StatelessWidget {
@@ -23,7 +24,24 @@ class DetailsView extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.91,
               child: LayoutBuilder(builder: (context, constraints) {
                 if (constraints.maxWidth < mobileWidth) {
-                  List<Widget> widgetList = [];
+                  final primaryColorLight = Theme.of(context).primaryColorLight;
+                  final focusColor = Theme.of(context).focusColor;
+                  final diameter = min(
+                    constraints.maxWidth / 2,
+                    constraints.maxHeight,
+                  );
+                  List<Widget> widgetList = [
+                    Hero(
+                      tag: tag,
+                      child: HalfCircleContainer(
+                        tag: tag,
+                        diameter: diameter,
+                        constraints: constraints,
+                        primaryColorLight: primaryColorLight,
+                        focusColor: focusColor,
+                      ),
+                    ),
+                  ];
                   return Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -32,38 +50,20 @@ class DetailsView extends StatelessWidget {
                 } else {
                   final primaryColorLight = Theme.of(context).primaryColorLight;
                   final focusColor = Theme.of(context).focusColor;
+                  final diameter = min(
+                    constraints.maxWidth,
+                    constraints.maxHeight / 2,
+                  );
+
                   List<Widget> widgetList = [
                     Hero(
                       tag: tag,
-                      child: Stack(
-                        alignment: Alignment.centerLeft,
-                        children: [
-                          SizedBox.square(
-                            dimension: min(
-                              constraints.maxWidth,
-                              constraints.maxHeight / 2,
-                            ),
-                            child: CustomPaint(
-                              size: Size(
-                                constraints.maxWidth,
-                                constraints.maxHeight,
-                              ),
-                              painter: HalfCirclePainter(
-                                primaryColorLight: primaryColorLight,
-                                focusColor: focusColor,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            "FUCK",
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineMedium!
-                                .copyWith(
-                                  color: Theme.of(context).hintColor,
-                                ),
-                          ),
-                        ],
+                      child: HalfCircleContainer(
+                        tag: tag,
+                        diameter: diameter,
+                        constraints: constraints,
+                        primaryColorLight: primaryColorLight,
+                        focusColor: focusColor,
                       ),
                     ),
                   ];
@@ -79,48 +79,5 @@ class DetailsView extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class HalfCirclePainter extends CustomPainter {
-  final Color primaryColorLight;
-  final Color focusColor;
-
-  const HalfCirclePainter({
-    required this.primaryColorLight,
-    required this.focusColor,
-  });
-  @override
-  void paint(Canvas canvas, Size size) {
-    final center = Offset(0, size.height / 2);
-    final radius = size.width / 2;
-    final radiusRed = size.width / 2 + 10;
-
-    final paintFocus = Paint()
-      ..color = focusColor
-      ..style = PaintingStyle.fill;
-    final paintPrimary = Paint()
-      ..color = primaryColorLight
-      ..style = PaintingStyle.fill;
-
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: radiusRed),
-      3 * 3.14 / 2,
-      3.14,
-      true,
-      paintFocus,
-    );
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: radius),
-      3 * 3.14 / 2,
-      3.14,
-      true,
-      paintPrimary,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
   }
 }
