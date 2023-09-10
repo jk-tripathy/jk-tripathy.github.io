@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:portfolio/data/dimensions.dart';
 import 'package:portfolio/screens/sections.dart';
 import 'package:portfolio/widgets/landing_screen_text.dart';
@@ -24,7 +25,10 @@ class LandingPage extends StatelessWidget {
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.6,
                     left: MediaQuery.of(context).size.width * 0.5,
-                    child: navButton(context),
+                    child: navButton(
+                      context,
+                      PageTransitionType.topToBottom,
+                    ),
                   ),
                 ],
               );
@@ -38,8 +42,11 @@ class LandingPage extends StatelessWidget {
                   ),
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.7,
-                    left: MediaQuery.of(context).size.width * 0.6,
-                    child: navButton(context),
+                    left: MediaQuery.of(context).size.width * 0.55,
+                    child: navButton(
+                      context,
+                      PageTransitionType.rightToLeft,
+                    ),
                   ),
                 ],
               );
@@ -50,26 +57,22 @@ class LandingPage extends StatelessWidget {
     );
   }
 
-  Widget navButton(context) {
+  Widget navButton(
+    context,
+    transitionType,
+  ) {
     return Hero(
       tag: 'sectionsHero',
       child: ElevatedButton(
         onPressed: () {
           Navigator.push(
             context,
-            PageRouteBuilder(
-              transitionDuration: const Duration(milliseconds: 600),
-              reverseTransitionDuration: const Duration(milliseconds: 600),
-              pageBuilder: (_, __, ___) => const Sections(),
-              transitionsBuilder:
-                  (context, animation, secondaryAnimation, child) {
-                final tween = Tween(begin: 0.0, end: 1.0);
-                final fadeAnimation = animation.drive(tween);
-                return FadeTransition(
-                  opacity: fadeAnimation,
-                  child: child,
-                );
-              },
+            PageTransition(
+              type: transitionType,
+              duration: const Duration(milliseconds: 600),
+              reverseDuration: const Duration(milliseconds: 600),
+              child: const Sections(),
+              childCurrent: this,
             ),
           );
         },
@@ -82,7 +85,10 @@ class LandingPage extends StatelessWidget {
             return Theme.of(context).primaryColorDark;
           }),
         ),
-        child: const Text('Welcome in'),
+        child: const Padding(
+          padding: EdgeInsets.all(6.0),
+          child: Text('Welcome in'),
+        ),
       ),
     );
   }

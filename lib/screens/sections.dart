@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:portfolio/data/dimensions.dart';
-import 'package:portfolio/widgets/circle_outline_container.dart';
+
 import 'package:portfolio/widgets/top_bar.dart';
 
 class Sections extends StatelessWidget {
@@ -23,60 +24,145 @@ class Sections extends StatelessWidget {
               const TopBar(),
               SizedBox(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.91,
+                height: MediaQuery.of(context).size.height * 0.85,
                 child: Center(
                   child: LayoutBuilder(builder: (context, constraints) {
+                    final PageTransitionType transitionType;
+                    final double sectionWidth;
+                    if (constraints.maxWidth < mobileWidth) {
+                      transitionType = PageTransitionType.topToBottom;
+                      sectionWidth = MediaQuery.of(context).size.width * 0.6;
+                    } else {
+                      transitionType = PageTransitionType.rightToLeft;
+                      sectionWidth = MediaQuery.of(context).size.width * 0.3;
+                    }
                     List<Widget> widgetList = [
-                      const CircleOutlineContainer(
-                        tag: 'fuckHero1',
-                        text: 'FUCK',
+                      SectionsNav(
+                        tag: 'about',
+                        symbol: "",
+                        text: 'Who I ',
+                        emphText: 'Am',
+                        transitionType: transitionType,
+                        size: sectionWidth,
                       ),
-                      Container(
-                        height: 15,
-                        width: 15,
-                        color: Theme.of(context).shadowColor,
+                      SectionsNav(
+                        tag: 'projects',
+                        symbol: "+",
+                        text: "What I've ",
+                        emphText: 'Done',
+                        transitionType: transitionType,
+                        size: sectionWidth,
                       ),
-                      const CircleOutlineContainer(
-                        tag: 'fuckHero2',
-                        text: 'FUCK',
+                      SectionsNav(
+                        tag: 'work',
+                        symbol: "+",
+                        text: 'Where I ',
+                        emphText: 'Work',
+                        transitionType: transitionType,
+                        size: sectionWidth,
                       ),
-                      Container(
-                        height: 15,
-                        width: 15,
-                        color: Theme.of(context).shadowColor,
+                      SectionsNav(
+                        tag: 'papers',
+                        symbol: "+",
+                        text: 'What Makes Me ',
+                        emphText: 'Proud',
+                        transitionType: transitionType,
+                        size: sectionWidth,
                       ),
-                      const CircleOutlineContainer(
-                        tag: 'fuckHero3',
-                        text: 'FUCK',
+                      Hero(
+                        tag: 'sectionsHero',
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 16.0),
+                          child: Container(
+                            width: sectionWidth,
+                            height: 4,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColorLight,
+                              borderRadius: BorderRadius.circular(
+                                2,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
-                      Container(
-                        height: 15,
-                        width: 15,
-                        color: Theme.of(context).shadowColor,
-                      ),
-                      const CircleOutlineContainer(
-                        tag: 'fuckHero4',
-                        text: 'FUCK',
+                      SectionsNav(
+                        tag: 'contact',
+                        symbol: "=",
+                        text: 'Already ',
+                        emphText: 'Like Me?',
+                        transitionType: transitionType,
+                        size: sectionWidth,
                       ),
                     ];
-                    if (constraints.maxWidth < mobileWidth) {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: widgetList,
-                      );
-                    } else {
-                      return Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: widgetList,
-                      );
-                    }
+                    return Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: widgetList,
+                    );
                   }),
                 ),
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class SectionsNav extends StatelessWidget {
+  final double size;
+  final String symbol;
+  final String text;
+  final String emphText;
+  final String tag;
+  final PageTransitionType transitionType;
+  const SectionsNav({
+    super.key,
+    required this.symbol,
+    required this.text,
+    required this.emphText,
+    required this.tag,
+    required this.transitionType,
+    required this.size,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: SizedBox(
+        width: size,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              symbol,
+              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                    color: Theme.of(context).hintColor,
+                    fontFamily: 'Carrois',
+                  ),
+            ),
+            Row(
+              children: [
+                Text(
+                  text,
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                        color: Theme.of(context).primaryColorLight,
+                      ),
+                ),
+                Text(
+                  emphText,
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                        color: Theme.of(context).hintColor,
+                        fontFamily: 'Carrois',
+                      ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );

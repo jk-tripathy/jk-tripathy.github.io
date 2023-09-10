@@ -9,26 +9,23 @@ class TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: 'sectionsHero',
-      child: Container(
-        color: Theme.of(context).primaryColorLight,
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.09,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text(
-              "JKT",
-              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    color: Theme.of(context).hintColor,
-                    fontFamily: "Carrois",
-                  ),
-            ),
-            iconGroup(context),
-          ],
-        ),
+    return Container(
+      color: Theme.of(context).primaryColorDark,
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 0.15,
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(
+            "JKT",
+            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                  color: Theme.of(context).hintColor,
+                  fontFamily: "Carrois",
+                ),
+          ),
+          iconGroup(context),
+        ],
       ),
     );
   }
