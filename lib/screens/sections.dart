@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio/data/dimensions.dart';
+import 'package:portfolio/screens/details_view.dart';
 
 import 'package:portfolio/widgets/top_bar.dart';
 
@@ -118,6 +119,7 @@ class SectionsNav extends StatelessWidget {
   final String emphText;
   final String tag;
   final PageTransitionType transitionType;
+
   const SectionsNav({
     super.key,
     required this.symbol,
@@ -153,12 +155,28 @@ class SectionsNav extends StatelessWidget {
                         color: Theme.of(context).primaryColorLight,
                       ),
                 ),
-                Text(
-                  emphText,
-                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                        color: Theme.of(context).hintColor,
-                        fontFamily: 'Carrois',
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      PageTransition(
+                        type: transitionType,
+                        duration: const Duration(milliseconds: 600),
+                        reverseDuration: const Duration(milliseconds: 600),
+                        child: DetailsView(
+                          tag: tag,
+                        ),
+                        childCurrent: this,
                       ),
+                    );
+                  },
+                  child: Text(
+                    emphText,
+                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                          color: Theme.of(context).hintColor,
+                          fontFamily: 'Carrois',
+                        ),
+                  ),
                 ),
               ],
             )
