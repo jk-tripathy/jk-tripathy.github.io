@@ -33,9 +33,15 @@ class Sections extends StatelessWidget {
                     if (constraints.maxWidth < mobileWidth) {
                       transitionType = PageTransitionType.topToBottom;
                       sectionWidth = MediaQuery.of(context).size.width * 0.6;
+                    } else if (constraints.maxWidth < mobileWidth * 2) {
+                      transitionType = PageTransitionType.rightToLeft;
+                      sectionWidth = MediaQuery.of(context).size.width * 0.55;
+                    } else if (constraints.maxWidth < mobileWidth * 2.7) {
+                      transitionType = PageTransitionType.rightToLeft;
+                      sectionWidth = MediaQuery.of(context).size.width * 0.45;
                     } else {
                       transitionType = PageTransitionType.rightToLeft;
-                      sectionWidth = MediaQuery.of(context).size.width * 0.3;
+                      sectionWidth = MediaQuery.of(context).size.width * 0.32;
                     }
                     List<Widget> widgetList = [
                       SectionsNav(
@@ -137,7 +143,7 @@ class SectionsNav extends StatelessWidget {
       child: SizedBox(
         width: size,
         child: Row(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
