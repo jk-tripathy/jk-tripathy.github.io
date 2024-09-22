@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/details_view.dart';
 import 'package:portfolio/screens/landing_page.dart';
-import 'package:portfolio/screens/sections.dart';
+import 'package:portfolio/screens/home.dart';
 import 'package:go_router/go_router.dart';
 
 void main() {
@@ -73,12 +73,12 @@ final GoRouter _router = GoRouter(
           const LandingPage(),
       routes: <RouteBase>[
         GoRoute(
-          path: 'sections',
+          path: 'home',
           pageBuilder: (BuildContext context, GoRouterState state) =>
               buildPageTransition(
             context,
             state,
-            const Sections(),
+            const HomePage(),
           ),
         ),
         GoRoute(
