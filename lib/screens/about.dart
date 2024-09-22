@@ -33,10 +33,44 @@ class AboutView extends StatelessWidget {
   }
 
   Column MobileView(BuildContext context) {
-    List<Widget> widgetList = [];
+    List<Widget> widgetList = [
+      Image(
+        image: AssetImage('assets/img/me-circle.png'),
+        height: MediaQuery.of(context).size.height * 0.35,
+        width: MediaQuery.of(context).size.height * 0.35,
+      ),
+      Hero(
+        tag: 'hero',
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 16.0),
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.85,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColorLight,
+              borderRadius: BorderRadius.circular(
+                2,
+              ),
+            ),
+          ),
+        ),
+      ),
+      Container(
+        width: MediaQuery.of(context).size.width * 0.7,
+        height: MediaQuery.of(context).size.height * 0.3,
+        child: Center(
+          child: Text(
+            "I am a software engineer with a passion for creating and developing software applications as well as research. I have experience in developing web applications, mobile applications, and desktop applications. I am proficient in a variety of programming languages and frameworks. I am a quick learner and a team player. I am always looking for new challenges and opportunities to grow.",
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  color: Theme.of(context).primaryColorLight,
+                ),
+          ),
+        ),
+      ),
+    ];
     return Column(
       mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: widgetList,
     );
   }
