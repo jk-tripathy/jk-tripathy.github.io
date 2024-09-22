@@ -72,18 +72,8 @@ class LandingPage extends StatelessWidget {
       tag: 'sectionsHero',
       child: ElevatedButton(
         onPressed: () {
-          /* Navigator.push(
-            context,
-            PageTransition(
-              type: transitionType,
-              duration: const Duration(milliseconds: 600),
-              reverseDuration: const Duration(milliseconds: 600),
-              child: const Sections(),
-              childCurrent: this,
-            ),
-          ); */
           return GoRouter.of(context).go(
-            '/sections',
+            '/home',
             extra: {'transitionType': transitionType},
           );
         },

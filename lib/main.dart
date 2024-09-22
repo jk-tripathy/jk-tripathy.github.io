@@ -83,33 +83,48 @@ final GoRouter _router = GoRouter(
         ),
         GoRoute(
           path: 'about',
-          builder: (BuildContext context, GoRouterState state) {
-            return DetailsView(tag: 'about');
-          },
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              buildPageTransition(
+            context,
+            state,
+            const DetailsView(tag: 'about'),
+          ),
         ),
         GoRoute(
           path: 'projects',
-          builder: (BuildContext context, GoRouterState state) {
-            return DetailsView(tag: 'projects');
-          },
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              buildPageTransition(
+            context,
+            state,
+            const DetailsView(tag: 'projects'),
+          ),
         ),
         GoRoute(
           path: 'work',
-          builder: (BuildContext context, GoRouterState state) {
-            return DetailsView(tag: 'work');
-          },
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              buildPageTransition(
+            context,
+            state,
+            const DetailsView(tag: 'work'),
+          ),
         ),
         GoRoute(
           path: 'papers',
-          builder: (BuildContext context, GoRouterState state) {
-            return DetailsView(tag: 'papers');
-          },
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              buildPageTransition(
+            context,
+            state,
+            const DetailsView(tag: 'papers'),
+          ),
         ),
         GoRoute(
           path: 'contact',
-          builder: (BuildContext context, GoRouterState state) {
-            return DetailsView(tag: 'contact');
-          },
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              buildPageTransition(
+            context,
+            state,
+            const DetailsView(tag: 'papers'),
+          ),
         ),
       ],
     ),
