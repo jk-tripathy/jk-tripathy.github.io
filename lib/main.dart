@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:portfolio/screens/about.dart';
 import 'package:portfolio/screens/details_view.dart';
 import 'package:portfolio/screens/landing_page.dart';
 import 'package:portfolio/screens/home.dart';
@@ -89,7 +90,7 @@ final GoRouter _router = GoRouter(
               buildPageTransition(
             context,
             state,
-            const DetailsView(tag: 'about'),
+            const AboutView(),
           ),
         ),
         GoRoute(
@@ -161,6 +162,14 @@ class MyApp extends StatelessWidget {
             fontSize: min(
               MediaQuery.of(context).size.height * 0.045,
               MediaQuery.of(context).size.width * 0.045,
+            ),
+            fontWeight: FontWeight.w400,
+          ),
+          bodyMedium: TextStyle(
+            fontFamily: 'Nunito',
+            fontSize: min(
+              MediaQuery.of(context).size.height * 0.03,
+              MediaQuery.of(context).size.width * 0.035,
             ),
             fontWeight: FontWeight.w400,
           ),

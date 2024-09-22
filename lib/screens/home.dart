@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
                         size: sectionWidth,
                       ),
                       Hero(
-                        tag: 'sectionsHero',
+                        tag: 'hero',
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 16.0),
                           child: Container(

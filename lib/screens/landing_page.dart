@@ -69,7 +69,7 @@ class LandingPage extends StatelessWidget {
     transitionType,
   ) {
     return Hero(
-      tag: 'sectionsHero',
+      tag: 'hero',
       child: ElevatedButton(
         onPressed: () {
           return GoRouter.of(context).go(
