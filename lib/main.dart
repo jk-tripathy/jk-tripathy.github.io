@@ -4,8 +4,10 @@ import 'package:portfolio/screens/details_view.dart';
 import 'package:portfolio/screens/landing_page.dart';
 import 'package:portfolio/screens/home.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() {
+  usePathUrlStrategy();
   runApp(const MyApp());
 }
 
