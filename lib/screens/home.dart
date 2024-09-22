@@ -90,8 +90,8 @@ class HomePage extends StatelessWidget {
                       SectionsNav(
                         tag: 'contact',
                         symbol: "=",
-                        text: 'Already ',
-                        emphText: 'Like Me?',
+                        text: 'Want to ',
+                        emphText: 'Chat?',
                         transitionType: transitionType,
                         size: sectionWidth,
                       ),
