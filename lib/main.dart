@@ -9,6 +9,62 @@ void main() {
   runApp(const MyApp());
 }
 
+CustomTransitionPage buildPageTransition(
+  BuildContext context,
+  GoRouterState state,
+  Widget child,
+) {
+  Map<String, dynamic>? extra = state.extra as Map<String, dynamic>? ?? {};
+  String transitionType = extra['transitionType'] ?? 'rightToLeft';
+  switch (transitionType) {
+    case 'topToBottom':
+      return CustomTransitionPage(
+        key: state.pageKey,
+        transitionDuration: const Duration(milliseconds: 600),
+        reverseTransitionDuration: const Duration(milliseconds: 600),
+        child: child,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(0, -1),
+            end: Offset.zero,
+          ).animate(animation),
+          child: child,
+        ),
+      );
+    case 'rightToLeft':
+      return CustomTransitionPage(
+        key: state.pageKey,
+        transitionDuration: const Duration(milliseconds: 600),
+        reverseTransitionDuration: const Duration(milliseconds: 600),
+        child: child,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(1, 0),
+            end: Offset.zero,
+          ).animate(animation),
+          child: child,
+        ),
+      );
+    default:
+      return CustomTransitionPage(
+        key: state.pageKey,
+        transitionDuration: const Duration(milliseconds: 600),
+        reverseTransitionDuration: const Duration(milliseconds: 600),
+        child: child,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(1, 0),
+            end: Offset.zero,
+          ).animate(animation),
+          child: child,
+        ),
+      );
+  }
+}
+
 final GoRouter _router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
@@ -18,8 +74,12 @@ final GoRouter _router = GoRouter(
       routes: <RouteBase>[
         GoRoute(
           path: 'sections',
-          builder: (BuildContext context, GoRouterState state) =>
-              const Sections(),
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              buildPageTransition(
+            context,
+            state,
+            const Sections(),
+          ),
         ),
         GoRoute(
           path: 'about',

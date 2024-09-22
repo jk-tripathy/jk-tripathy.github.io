@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:portfolio/data/dimensions.dart';
 import 'package:portfolio/widgets/landing_screen_text.dart';
 import 'package:go_router/go_router.dart';
@@ -39,7 +38,7 @@ class LandingPage extends StatelessWidget {
           left: MediaQuery.of(context).size.width * 0.55,
           child: navButton(
             context,
-            PageTransitionType.rightToLeft,
+            'rightToLeft',
           ),
         ),
       ],
@@ -58,7 +57,7 @@ class LandingPage extends StatelessWidget {
           left: MediaQuery.of(context).size.width * 0.5,
           child: navButton(
             context,
-            PageTransitionType.topToBottom,
+            'topToBottom',
           ),
         ),
       ],
@@ -83,7 +82,10 @@ class LandingPage extends StatelessWidget {
               childCurrent: this,
             ),
           ); */
-          return GoRouter.of(context).go('/sections');
+          return GoRouter.of(context).go(
+            '/sections',
+            extra: {'transitionType': transitionType},
+          );
         },
         style: ButtonStyle(
           foregroundColor:

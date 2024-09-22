@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:portfolio/data/dimensions.dart';
-import 'package:portfolio/screens/details_view.dart';
 
 import 'package:portfolio/widgets/top_bar.dart';
 
@@ -25,19 +23,19 @@ class Sections extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.85,
                 child: Center(
                   child: LayoutBuilder(builder: (context, constraints) {
-                    final PageTransitionType transitionType;
+                    final String transitionType;
                     final double sectionWidth;
                     if (constraints.maxWidth < mobileWidth) {
-                      transitionType = PageTransitionType.topToBottom;
+                      transitionType = 'topToBottom';
                       sectionWidth = MediaQuery.of(context).size.width * 0.6;
                     } else if (constraints.maxWidth < mobileWidth * 2) {
-                      transitionType = PageTransitionType.rightToLeft;
+                      transitionType = 'rightToLeft';
                       sectionWidth = MediaQuery.of(context).size.width * 0.55;
                     } else if (constraints.maxWidth < mobileWidth * 2.7) {
-                      transitionType = PageTransitionType.rightToLeft;
+                      transitionType = 'rightToLeft';
                       sectionWidth = MediaQuery.of(context).size.width * 0.45;
                     } else {
-                      transitionType = PageTransitionType.rightToLeft;
+                      transitionType = 'rightToLeft';
                       sectionWidth = MediaQuery.of(context).size.width * 0.32;
                     }
                     List<Widget> widgetList = [
@@ -121,7 +119,7 @@ class SectionsNav extends StatelessWidget {
   final String text;
   final String emphText;
   final String tag;
-  final PageTransitionType transitionType;
+  final String transitionType;
 
   const SectionsNav({
     super.key,
@@ -160,19 +158,12 @@ class SectionsNav extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    /* Navigator.push(
-                      context,
-                      PageTransition(
-                        type: transitionType,
-                        duration: const Duration(milliseconds: 600),
-                        reverseDuration: const Duration(milliseconds: 600),
-                        child: DetailsView(
-                          tag: tag,
-                        ),
-                        childCurrent: this,
-                      ),
-                    ); */
-                    return GoRouter.of(context).go('/$tag');
+                    return GoRouter.of(context).go(
+                      '/$tag',
+                      extra: {
+                        'transitionType': transitionType,
+                      },
+                    );
                   },
                   child: Text(
                     emphText,
