@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio/data/dimensions.dart';
-import 'package:portfolio/screens/sections.dart';
 import 'package:portfolio/widgets/landing_screen_text.dart';
+import 'package:go_router/go_router.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -16,44 +16,52 @@ class LandingPage extends StatelessWidget {
           child: LayoutBuilder(builder: (context, constraints) {
             if (constraints.maxWidth < mobileWidth) {
               // MOBILE
-              return Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  LandingScreenText(
-                    textBoxWidth: MediaQuery.of(context).size.width * 0.7,
-                  ),
-                  Positioned(
-                    top: MediaQuery.of(context).size.height * 0.6,
-                    left: MediaQuery.of(context).size.width * 0.5,
-                    child: navButton(
-                      context,
-                      PageTransitionType.topToBottom,
-                    ),
-                  ),
-                ],
-              );
+              return MobileView(context);
             } else {
               // DESKTOP
-              return Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  LandingScreenText(
-                    textBoxWidth: MediaQuery.of(context).size.width * 0.6,
-                  ),
-                  Positioned(
-                    top: MediaQuery.of(context).size.height * 0.7,
-                    left: MediaQuery.of(context).size.width * 0.55,
-                    child: navButton(
-                      context,
-                      PageTransitionType.rightToLeft,
-                    ),
-                  ),
-                ],
-              );
+              return DesktopView(context);
             }
           }),
         ),
       ),
+    );
+  }
+
+  Stack DesktopView(BuildContext context) {
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        LandingScreenText(
+          textBoxWidth: MediaQuery.of(context).size.width * 0.6,
+        ),
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.7,
+          left: MediaQuery.of(context).size.width * 0.55,
+          child: navButton(
+            context,
+            PageTransitionType.rightToLeft,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Stack MobileView(BuildContext context) {
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        LandingScreenText(
+          textBoxWidth: MediaQuery.of(context).size.width * 0.7,
+        ),
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.6,
+          left: MediaQuery.of(context).size.width * 0.5,
+          child: navButton(
+            context,
+            PageTransitionType.topToBottom,
+          ),
+        ),
+      ],
     );
   }
 
@@ -65,7 +73,7 @@ class LandingPage extends StatelessWidget {
       tag: 'sectionsHero',
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(
+          /* Navigator.push(
             context,
             PageTransition(
               type: transitionType,
@@ -74,12 +82,13 @@ class LandingPage extends StatelessWidget {
               child: const Sections(),
               childCurrent: this,
             ),
-          );
+          ); */
+          return GoRouter.of(context).go('/sections');
         },
         style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.resolveWith<Color>(
-              (Set<MaterialState> states) {
-            if (states.contains(MaterialState.hovered)) {
+          foregroundColor:
+              WidgetStateProperty.resolveWith<Color>((Set<WidgetState> states) {
+            if (states.contains(WidgetState.hovered)) {
               return Theme.of(context).focusColor;
             }
             return Theme.of(context).primaryColorDark;

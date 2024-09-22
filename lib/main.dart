@@ -1,19 +1,67 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:portfolio/screens/details_view.dart';
 import 'package:portfolio/screens/landing_page.dart';
+import 'package:portfolio/screens/sections.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
+final GoRouter _router = GoRouter(
+  routes: <RouteBase>[
+    GoRoute(
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) =>
+          const LandingPage(),
+      routes: <RouteBase>[
+        GoRoute(
+          path: 'sections',
+          builder: (BuildContext context, GoRouterState state) =>
+              const Sections(),
+        ),
+        GoRoute(
+          path: 'about',
+          builder: (BuildContext context, GoRouterState state) {
+            return DetailsView(tag: 'about');
+          },
+        ),
+        GoRoute(
+          path: 'projects',
+          builder: (BuildContext context, GoRouterState state) {
+            return DetailsView(tag: 'projects');
+          },
+        ),
+        GoRoute(
+          path: 'work',
+          builder: (BuildContext context, GoRouterState state) {
+            return DetailsView(tag: 'work');
+          },
+        ),
+        GoRoute(
+          path: 'papers',
+          builder: (BuildContext context, GoRouterState state) {
+            return DetailsView(tag: 'papers');
+          },
+        ),
+        GoRoute(
+          path: 'contact',
+          builder: (BuildContext context, GoRouterState state) {
+            return DetailsView(tag: 'contact');
+          },
+        ),
+      ],
+    ),
+  ],
+);
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  final zoomPageTransitionsBuilder = const ZoomPageTransitionsBuilder(
-    allowEnterRouteSnapshotting: false, // Disable entering route snapshotting
-  );
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: "JKT's Portfolio",
       theme: ThemeData(
         primaryColorDark: const Color(0xFF2B2D42),
@@ -50,8 +98,8 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
-            textStyle: MaterialStateProperty.all<TextStyle>(
+            overlayColor: WidgetStateProperty.all<Color>(Colors.transparent),
+            textStyle: WidgetStateProperty.all<TextStyle>(
               TextStyle(
                 fontFamily: 'Nunito',
                 fontSize: min(
@@ -65,8 +113,8 @@ class MyApp extends StatelessWidget {
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: ButtonStyle(
-            overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
-            textStyle: MaterialStateProperty.all<TextStyle>(
+            overlayColor: WidgetStateProperty.all<Color>(Colors.transparent),
+            textStyle: WidgetStateProperty.all<TextStyle>(
               TextStyle(
                 fontFamily: 'Nunito',
                 fontSize: min(
@@ -79,7 +127,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const LandingPage(),
+      // home: const LandingPage(),
+      routerConfig: _router,
     );
   }
 }

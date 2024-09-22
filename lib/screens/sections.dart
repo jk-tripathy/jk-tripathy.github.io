@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio/data/dimensions.dart';
 import 'package:portfolio/screens/details_view.dart';
@@ -10,11 +11,7 @@ class Sections extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () {
-        Navigator.pop(context);
-        return Future(() => true);
-      },
+    return PopScope(
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Theme.of(context).primaryColorDark,
@@ -163,7 +160,7 @@ class SectionsNav extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(
+                    /* Navigator.push(
                       context,
                       PageTransition(
                         type: transitionType,
@@ -174,7 +171,8 @@ class SectionsNav extends StatelessWidget {
                         ),
                         childCurrent: this,
                       ),
-                    );
+                    ); */
+                    return GoRouter.of(context).go('/$tag');
                   },
                   child: Text(
                     emphText,

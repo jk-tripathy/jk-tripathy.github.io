@@ -55,9 +55,9 @@ class LandingPage extends StatelessWidget {
         // Button action
       },
       style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.hovered)) {
+        foregroundColor:
+            WidgetStateProperty.resolveWith<Color>((Set<WidgetState> states) {
+          if (states.contains(WidgetState.hovered)) {
             return Theme.of(context).focusColor;
           }
           return Theme.of(context).primaryColorDark;
@@ -67,18 +67,3 @@ class LandingPage extends StatelessWidget {
     );
   }
 }
-
-
-// side: MaterialStateProperty.resolveWith<BorderSide>(
-//     (Set<MaterialState> states) {
-//   if (states.contains(MaterialState.hovered)) {
-//     return BorderSide(
-//       color: Theme.of(context).focusColor,
-//       width: 3,
-//     );
-//   }
-//   return BorderSide(
-//     color: Theme.of(context).primaryColorLight,
-//     width: 3,
-//   );
-// }),
