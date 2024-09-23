@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/data/dimensions.dart';
+import 'package:portfolio/widgets/custom_hero.dart';
 
 import 'package:portfolio/widgets/top_bar.dart';
 
@@ -71,8 +72,7 @@ class HomePage extends StatelessWidget {
                         transitionType: transitionType,
                         size: sectionWidth,
                       ),
-                      Hero(
-                        tag: 'hero',
+                      CustomHero(
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 16.0),
                           child: Container(
@@ -158,12 +158,7 @@ class SectionsNav extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    return GoRouter.of(context).go(
-                      '/$tag',
-                      extra: {
-                        'transitionType': transitionType,
-                      },
-                    );
+                    return GoRouter.of(context).go('/$tag');
                   },
                   child: Text(
                     emphText,

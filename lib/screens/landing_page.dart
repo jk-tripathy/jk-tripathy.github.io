@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
+import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/landing_screen_text.dart';
 import 'package:go_router/go_router.dart';
 
@@ -68,14 +69,10 @@ class LandingPage extends StatelessWidget {
     context,
     transitionType,
   ) {
-    return Hero(
-      tag: 'hero',
+    return CustomHero(
       child: ElevatedButton(
         onPressed: () {
-          return GoRouter.of(context).go(
-            '/home',
-            extra: {'transitionType': transitionType},
-          );
+          return GoRouter.of(context).go('/home');
         },
         style: ButtonStyle(
           foregroundColor:

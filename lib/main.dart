@@ -6,6 +6,7 @@ import 'package:portfolio/screens/landing_page.dart';
 import 'package:portfolio/screens/home.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:portfolio/screens/projects.dart';
 
 void main() {
   usePathUrlStrategy();
@@ -17,55 +18,14 @@ CustomTransitionPage buildPageTransition(
   GoRouterState state,
   Widget child,
 ) {
-  Map<String, dynamic>? extra = state.extra as Map<String, dynamic>? ?? {};
-  String transitionType = extra['transitionType'] ?? 'rightToLeft';
-  switch (transitionType) {
-    case 'topToBottom':
-      return CustomTransitionPage(
-        key: state.pageKey,
-        transitionDuration: const Duration(milliseconds: 600),
-        reverseTransitionDuration: const Duration(milliseconds: 600),
-        child: child,
-        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-            SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(0, -1),
-            end: Offset.zero,
-          ).animate(animation),
-          child: child,
-        ),
-      );
-    case 'rightToLeft':
-      return CustomTransitionPage(
-        key: state.pageKey,
-        transitionDuration: const Duration(milliseconds: 600),
-        reverseTransitionDuration: const Duration(milliseconds: 600),
-        child: child,
-        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-            SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(1, 0),
-            end: Offset.zero,
-          ).animate(animation),
-          child: child,
-        ),
-      );
-    default:
-      return CustomTransitionPage(
-        key: state.pageKey,
-        transitionDuration: const Duration(milliseconds: 600),
-        reverseTransitionDuration: const Duration(milliseconds: 600),
-        child: child,
-        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-            SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(1, 0),
-            end: Offset.zero,
-          ).animate(animation),
-          child: child,
-        ),
-      );
-  }
+  return CustomTransitionPage(
+    key: state.pageKey,
+    transitionDuration: const Duration(milliseconds: 750),
+    reverseTransitionDuration: const Duration(milliseconds: 750),
+    child: child,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+        FadeTransition(opacity: animation, child: child),
+  );
 }
 
 final GoRouter _router = GoRouter(
@@ -99,7 +59,7 @@ final GoRouter _router = GoRouter(
               buildPageTransition(
             context,
             state,
-            const DetailsView(tag: 'projects'),
+            const ProjectsView(),
           ),
         ),
         GoRoute(

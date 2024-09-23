@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
+import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/top_bar.dart';
 
 class AboutView extends StatelessWidget {
@@ -18,13 +19,15 @@ class AboutView extends StatelessWidget {
             SizedBox(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.75,
-              child: LayoutBuilder(builder: (context, constraints) {
-                if (constraints.maxWidth < mobileWidth) {
-                  return MobileView(context);
-                } else {
-                  return DesktopView(context);
-                }
-              }),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  if (constraints.maxWidth < mobileWidth) {
+                    return MobileView(context);
+                  } else {
+                    return DesktopView(context);
+                  }
+                },
+              ),
             ),
           ],
         ),
@@ -36,11 +39,10 @@ class AboutView extends StatelessWidget {
     List<Widget> widgetList = [
       Image(
         image: AssetImage('assets/img/me-circle.png'),
-        height: MediaQuery.of(context).size.height * 0.35,
-        width: MediaQuery.of(context).size.height * 0.35,
+        height: MediaQuery.of(context).size.height * 0.25,
+        width: MediaQuery.of(context).size.height * 0.25,
       ),
-      Hero(
-        tag: 'hero',
+      CustomHero(
         child: Padding(
           padding: const EdgeInsets.only(bottom: 16.0),
           child: Container(
@@ -61,9 +63,10 @@ class AboutView extends StatelessWidget {
         child: Center(
           child: Text(
             "I am a software engineer with a passion for creating and developing software applications as well as research. I have experience in developing web applications, mobile applications, and desktop applications. I am proficient in a variety of programming languages and frameworks. I am a quick learner and a team player. I am always looking for new challenges and opportunities to grow.",
-            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Theme.of(context).primaryColorLight,
                 ),
+            textAlign: TextAlign.center,
           ),
         ),
       ),
@@ -82,8 +85,7 @@ class AboutView extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.6,
         width: MediaQuery.of(context).size.height * 0.4,
       ),
-      Hero(
-        tag: 'hero',
+      CustomHero(
         child: Padding(
           padding: const EdgeInsets.only(bottom: 16.0),
           child: Container(
@@ -99,7 +101,7 @@ class AboutView extends StatelessWidget {
         ),
       ),
       Container(
-        width: MediaQuery.of(context).size.width * 0.40,
+        width: MediaQuery.of(context).size.width * 0.45,
         height: MediaQuery.of(context).size.height * 0.60,
         child: Center(
           child: Text(
@@ -107,6 +109,7 @@ class AboutView extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Theme.of(context).primaryColorLight,
                 ),
+            textAlign: TextAlign.center,
           ),
         ),
       ),
