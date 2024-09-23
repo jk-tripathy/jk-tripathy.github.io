@@ -14,22 +14,16 @@ class ProjectsView extends StatefulWidget {
 
 class _ProjectsViewState extends State<ProjectsView>
     with TickerProviderStateMixin {
-  late final List<Map<String, String>> research_projects;
-  late final List<Map<String, String>> swe_projects;
   late PageController _pageViewController;
   late TabController _tabController;
 
-  int _currentProjectIndex = 0;
   int _currentPageIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    research_projects = project_list['Research']!;
-    swe_projects = project_list['SWE']!;
     _pageViewController = PageController();
-    _tabController =
-        TabController(length: research_projects.length, vsync: this);
+    _tabController = TabController(length: project_list.length, vsync: this);
   }
 
   @override
@@ -57,85 +51,25 @@ class _ProjectsViewState extends State<ProjectsView>
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        OutlinedButton(
-                          onPressed: () {
-                            setState(() {
-                              _currentProjectIndex = 0;
-                              _pageViewController.jumpToPage(0);
-                              _tabController = TabController(
-                                  length: research_projects.length,
-                                  vsync: this);
-                            });
-                          },
-                          style: OutlinedButton.styleFrom(
-                            foregroundColor: _currentProjectIndex == 0
-                                ? Theme.of(context).primaryColorDark
-                                : Theme.of(context).primaryColorLight,
-                            backgroundColor: _currentProjectIndex == 0
-                                ? Theme.of(context).primaryColorLight
-                                : Theme.of(context).primaryColorDark,
-                          ),
-                          child: const Text('Research'),
-                        ),
-                        OutlinedButton(
-                          onPressed: () {
-                            setState(() {
-                              _currentProjectIndex = 1;
-                              _pageViewController.jumpToPage(0);
-                              _tabController = TabController(
-                                  length: swe_projects.length, vsync: this);
-                            });
-                          },
-                          style: OutlinedButton.styleFrom(
-                            foregroundColor: _currentProjectIndex == 1
-                                ? Theme.of(context).primaryColorDark
-                                : Theme.of(context).primaryColorLight,
-                            backgroundColor: _currentProjectIndex == 1
-                                ? Theme.of(context).primaryColorLight
-                                : Theme.of(context).primaryColorDark,
-                          ),
-                          child: const Text('SWE'),
-                        ),
-                      ],
-                    ),
                     CustomHero(
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 16.0),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.85,
-                          height: constraints.maxWidth < mobileWidth
-                              ? MediaQuery.of(context).size.height * 0.65
-                              : MediaQuery.of(context).size.height * 0.60,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Theme.of(context).primaryColorLight,
-                              width: 4,
-                            ),
-                            borderRadius: BorderRadius.circular(
-                              25,
-                            ),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.85,
+                        height: constraints.maxWidth < mobileWidth
+                            ? MediaQuery.of(context).size.height * 0.65
+                            : MediaQuery.of(context).size.height * 0.60,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Theme.of(context).primaryColorLight,
+                            width: 4,
                           ),
-                          child: PageView(
-                              controller: _pageViewController,
-                              onPageChanged: _handlePageViewChanged,
-                              children: [
-                                if (_currentProjectIndex == 0)
-                                  ...research_projects.map((project) {
-                                    return Center(
-                                      child: Text(project['title']!),
-                                    );
-                                  }),
-                                if (_currentProjectIndex == 1)
-                                  ...swe_projects.map((project) {
-                                    return Center(
-                                      child: Text(project['title']!),
-                                    );
-                                  }),
-                              ]),
+                          borderRadius: BorderRadius.circular(
+                            25,
+                          ),
+                        ),
+                        child: PageView(
+                          controller: _pageViewController,
+                          onPageChanged: _handlePageViewChanged,
+                          children: PageViewContent(context),
                         ),
                       ),
                     ),
@@ -156,20 +90,11 @@ class _ProjectsViewState extends State<ProjectsView>
   }
 
   List<Widget> PageViewContent(BuildContext context) {
-    if (_currentProjectIndex == 0) {
-      return research_projects.map((project) {
-        return Center(
-          child: Text(project['title']!),
-        );
-      }).toList();
-    } else if (_currentProjectIndex == 1) {
-      return swe_projects.map((project) {
-        return Center(
-          child: Text(project['title']!),
-        );
-      }).toList();
-    }
-    return [];
+    return project_list.map((project) {
+      return Center(
+        child: Text(project['title']!),
+      );
+    }).toList();
   }
 
   void _handlePageViewChanged(int currentPageIndex) {
