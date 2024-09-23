@@ -1,12 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
 import 'package:portfolio/widgets/top_bar.dart';
 
-class DetailsView extends StatelessWidget {
-  final String tag;
-  const DetailsView({super.key, required this.tag});
+class ContactView extends StatelessWidget {
+  const ContactView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,25 +20,33 @@ class DetailsView extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.85,
               child: LayoutBuilder(builder: (context, constraints) {
                 if (constraints.maxWidth < mobileWidth) {
-                  List<Widget> widgetList = [];
-                  return Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: widgetList,
-                  );
+                  return MobileView(context);
                 } else {
-                  List<Widget> widgetList = [];
-                  return Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: widgetList,
-                  );
+                  return DesktopView(context);
                 }
               }),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Row DesktopView(BuildContext context) {
+    List<Widget> widgetList = [];
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: widgetList,
+    );
+  }
+
+  Column MobileView(BuildContext context) {
+    List<Widget> widgetList = [];
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: widgetList,
     );
   }
 }

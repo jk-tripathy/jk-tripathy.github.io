@@ -1,12 +1,15 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/about.dart';
+import 'package:portfolio/screens/contact.dart';
 import 'package:portfolio/screens/details_view.dart';
 import 'package:portfolio/screens/landing_page.dart';
 import 'package:portfolio/screens/home.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:portfolio/screens/papers.dart';
 import 'package:portfolio/screens/projects.dart';
+import 'package:portfolio/screens/work.dart';
 
 void main() {
   usePathUrlStrategy();
@@ -68,7 +71,7 @@ final GoRouter _router = GoRouter(
               buildPageTransition(
             context,
             state,
-            const DetailsView(tag: 'work'),
+            const WorkView(),
           ),
         ),
         GoRoute(
@@ -77,7 +80,7 @@ final GoRouter _router = GoRouter(
               buildPageTransition(
             context,
             state,
-            const DetailsView(tag: 'papers'),
+            const PapersView(),
           ),
         ),
         GoRoute(
@@ -86,7 +89,7 @@ final GoRouter _router = GoRouter(
               buildPageTransition(
             context,
             state,
-            const DetailsView(tag: 'papers'),
+            const ContactView(),
           ),
         ),
       ],
