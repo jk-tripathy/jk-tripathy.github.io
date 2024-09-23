@@ -44,34 +44,44 @@ class _ProjectsViewState extends State<ProjectsView>
           children: [
             const TopBar(),
             SizedBox(
-              width: MediaQuery.of(context).size.width,
+              width: MediaQuery.of(context).size.width * 0.85,
               height: MediaQuery.of(context).size.height * 0.85,
               child: LayoutBuilder(builder: (context, constraints) {
                 return Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    CustomHero(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.85,
-                        height: constraints.maxWidth < mobileWidth
-                            ? MediaQuery.of(context).size.height * 0.65
-                            : MediaQuery.of(context).size.height * 0.60,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Theme.of(context).primaryColorLight,
-                            width: 4,
-                          ),
-                          borderRadius: BorderRadius.circular(
-                            25,
+                    Stack(
+                      children: [
+                        CustomHero(
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.85,
+                            height: constraints.maxWidth < mobileWidth
+                                ? MediaQuery.of(context).size.height * 0.65
+                                : MediaQuery.of(context).size.height * 0.60,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Theme.of(context).primaryColorLight,
+                                width: 4,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                25,
+                              ),
+                            ),
                           ),
                         ),
-                        child: PageView(
-                          controller: _pageViewController,
-                          onPageChanged: _handlePageViewChanged,
-                          children: PageViewContent(context),
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.85,
+                          height: constraints.maxWidth < mobileWidth
+                              ? MediaQuery.of(context).size.height * 0.65
+                              : MediaQuery.of(context).size.height * 0.60,
+                          child: PageView(
+                            controller: _pageViewController,
+                            onPageChanged: _handlePageViewChanged,
+                            children: PageViewContent(context),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                     PageIndicator(
                       tabController: _tabController,
