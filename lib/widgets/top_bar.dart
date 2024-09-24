@@ -69,7 +69,7 @@ class TopBar extends StatelessWidget {
               imgDim: imgDim,
             ),
           ),
-          CustomHero(
+          /* CustomHero(
             tag: 'cv',
             child: IconButton(
               onPressed: () async {
@@ -93,7 +93,7 @@ class TopBar extends StatelessWidget {
                 'assets/img/cv.png',
               ),
             ),
-          ),
+          ), */
           CustomHero(
             tag: 'mail',
             child: LinkButton(

@@ -62,7 +62,7 @@ class ContactView extends StatelessWidget {
                                 : MediaQuery.of(context).size.height * 0.06,
                           ),
                         ),
-                        CustomHero(
+                        /* CustomHero(
                           tag: 'cv',
                           child: LinkButton(
                             img: 'assets/img/cv.png',
@@ -70,7 +70,7 @@ class ContactView extends StatelessWidget {
                                 ? MediaQuery.of(context).size.width * 0.07
                                 : MediaQuery.of(context).size.height * 0.06,
                           ),
-                        ),
+                        ), */
                         CustomHero(
                           tag: 'mail',
                           child: LinkButton(
