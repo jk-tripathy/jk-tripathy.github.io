@@ -71,7 +71,7 @@ final GoRouter _router = GoRouter(
               buildPageTransition(
             context,
             state,
-            const WorkView(),
+            WorkView(),
           ),
         ),
         GoRoute(
@@ -80,7 +80,7 @@ final GoRouter _router = GoRouter(
               buildPageTransition(
             context,
             state,
-            const PapersView(),
+            PapersView(),
           ),
         ),
         GoRoute(
