@@ -63,6 +63,7 @@ flutter:
   assets:
     - assets/img/github.png
     - assets/img/linkedin.png
+    - assets/img/paper.png
     - assets/img/cv.png
     - assets/img/me.jpg
     - assets/img/me-circle.png
