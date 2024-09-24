@@ -128,6 +128,14 @@ class MyApp extends StatelessWidget {
             ),
             fontWeight: FontWeight.w400,
           ),
+          headlineSmall: TextStyle(
+            fontFamily: 'Nunito',
+            fontSize: min(
+              MediaQuery.of(context).size.height * 0.04,
+              MediaQuery.of(context).size.width * 0.04,
+            ),
+            fontWeight: FontWeight.w900,
+          ),
           bodyMedium: TextStyle(
             fontFamily: 'Nunito',
             fontSize: min(
@@ -143,6 +151,14 @@ class MyApp extends StatelessWidget {
               MediaQuery.of(context).size.width * 0.03,
             ),
             fontWeight: FontWeight.w400,
+          ),
+          labelLarge: TextStyle(
+            fontFamily: 'Nunito',
+            fontSize: min(
+              MediaQuery.of(context).size.height * 0.025,
+              MediaQuery.of(context).size.width * 0.035,
+            ),
+            fontWeight: FontWeight.w600,
           ),
           labelMedium: TextStyle(
             fontFamily: 'Nunito',

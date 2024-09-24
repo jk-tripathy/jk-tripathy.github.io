@@ -4,14 +4,19 @@ const List<Map<String, dynamic>> project_list = [
     'focus': [
       'Text Generation',
       'Argument Mining',
-      'Abstractive Summarization',
+      'Summarization',
     ],
     'link': 'https://github.com/jk-tripathy/absargsumm',
     'content': [
       'Abstractive summarization of large scientific documents with an average of 7000 tokens.',
       'Novel approach of using Argument Structure to improve the summarization.',
       'Engineered a custom abstractive summarization model, which improved summary coherence by 3% based on ROUGE metrics.',
-    ]
+    ],
+    'tech': [
+      'Python',
+      'PyTorch',
+      'HF Transformers',
+    ],
   },
   {
     'title': 'XAI: Prompting and Evaluation of Multimodal QA',
@@ -25,7 +30,12 @@ const List<Map<String, dynamic>> project_list = [
       'Exploring different methods of prompting 3 different Large Language Models.',
       'Representing an image context in 6 different textual forms for Retrieval Augmented Generation',
       'Question Answering and Rationale Generation bench-marking on 2 different datasets.',
-    ]
+    ],
+    'tech': [
+      'Python',
+      'PyTorch',
+      'HF Transformers',
+    ],
   },
   {
     'title': 'Sexism Detection using MoE',
@@ -39,7 +49,12 @@ const List<Map<String, dynamic>> project_list = [
       'Multiclass Classification of 4 types of Online Sexism.',
       'Engineered a custom granular sexism classification method built using a Master of Experts architecture.',
       'Obtained an macro F1 score of 0.5288, matching state-of-the-art.',
-    ]
+    ],
+    'tech': [
+      'Python',
+      'PyTorch',
+      'HF Transformers',
+    ],
   },
   {
     'title': 'Knowledge Enhancement for PCL',
@@ -53,6 +68,11 @@ const List<Map<String, dynamic>> project_list = [
       'Multiclass Classification of 7 types of Patronizing and Condescending Language commonly found online.',
       'Performed Statistical Analysis of the data to provide more insights.',
       ' Implemented fine-tuning of a knowledge graph embedded LLM, obtaining a micro F1 score of 0.701, beating state-of-the-art.',
-    ]
+    ],
+    'tech': [
+      'Python',
+      'PyTorch',
+      'HF Transformers',
+    ],
   },
 ];

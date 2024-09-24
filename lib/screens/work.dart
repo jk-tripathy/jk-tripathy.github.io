@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
-import 'package:portfolio/data/projects.dart';
+import 'package:portfolio/data/project_list.dart';
 import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/page_indicator.dart';
 import 'package:portfolio/widgets/top_bar.dart';

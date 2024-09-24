@@ -49,12 +49,12 @@ class TopBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           LinkButton(
-            url: 'https://github.com/jatinkarthik-tripathy/',
+            url: 'https://github.com/jk-tripathy',
             img: 'assets/img/github.png',
             imgDim: imgDim,
           ),
           LinkButton(
-            url: 'https://www.linkedin.com/in/jatinkarthik-tripathy/',
+            url: 'https://www.linkedin.com/in/jk-tripathy/',
             img: 'assets/img/linkedin.png',
             imgDim: imgDim,
           ),

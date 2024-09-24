@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
 import 'package:portfolio/data/project_list.dart';
 import 'package:portfolio/widgets/custom_hero.dart';
+import 'package:portfolio/widgets/link_button.dart';
 import 'package:portfolio/widgets/page_indicator.dart';
 import 'package:portfolio/widgets/top_bar.dart';
 import 'package:flutter/foundation.dart';
@@ -114,7 +117,7 @@ class _ProjectsViewState extends State<ProjectsView>
                           child: PageView(
                             controller: _pageViewController,
                             onPageChanged: _handlePageViewChanged,
-                            children: PageViewContent(context),
+                            children: PageViewContent(context, constraints),
                           ),
                         ),
                       ],
@@ -135,10 +138,183 @@ class _ProjectsViewState extends State<ProjectsView>
     );
   }
 
-  List<Widget> PageViewContent(BuildContext context) {
+  List<Widget> PageViewContent(
+      BuildContext context, BoxConstraints constraints) {
     return project_list.map((project) {
       return Center(
-        child: Text(project['title']!),
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      project['title']!,
+                      style:
+                          Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                color: Theme.of(context).primaryColorLight,
+                              ),
+                    ),
+                  ),
+                  LinkButton(
+                    url: project['link']!,
+                    img: 'assets/img/github.png',
+                    imgDim: min(
+                      MediaQuery.of(context).size.width * 0.07,
+                      MediaQuery.of(context).size.height * 0.06,
+                    ),
+                  ),
+                ],
+              ),
+              constraints.maxWidth < mobileWidth
+                  ? Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Focus: ',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge!
+                                  .copyWith(
+                                    color: Theme.of(context).hintColor,
+                                  ),
+                            ),
+                            const SizedBox(width: 8),
+                            ...project['focus']!.map<Widget>((content) {
+                              return Text(
+                                "• $content",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelLarge!
+                                    .copyWith(
+                                      color:
+                                          Theme.of(context).primaryColorLight,
+                                    ),
+                              );
+                            }).toList(),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              'Tech Stack: ',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge!
+                                  .copyWith(
+                                    color: Theme.of(context).hintColor,
+                                  ),
+                            ),
+                            const SizedBox(width: 8),
+                            ...project['tech']!.map<Widget>((content) {
+                              return Text(
+                                "$content •",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelLarge!
+                                    .copyWith(
+                                      color:
+                                          Theme.of(context).primaryColorLight,
+                                    ),
+                              );
+                            }).toList(),
+                          ],
+                        )
+                      ],
+                    )
+                  : Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Focus: ',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge!
+                                  .copyWith(
+                                    color: Theme.of(context).hintColor,
+                                  ),
+                            ),
+                            ...project['focus']!.map<Widget>((content) {
+                              return Text(
+                                " • $content",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelLarge!
+                                    .copyWith(
+                                      color:
+                                          Theme.of(context).primaryColorLight,
+                                    ),
+                              );
+                            }).toList(),
+                          ],
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Tech Stack: ',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge!
+                                  .copyWith(
+                                    color: Theme.of(context).hintColor,
+                                  ),
+                            ),
+                            ...project['tech']!.map<Widget>((content) {
+                              return Text(
+                                " • $content",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelLarge!
+                                    .copyWith(
+                                      color:
+                                          Theme.of(context).primaryColorLight,
+                                    ),
+                              );
+                            }).toList(),
+                          ],
+                        ),
+                      ],
+                    ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...project['content']!.map<Widget>((content) {
+                    return Text(
+                      "• $content",
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: Theme.of(context).primaryColorLight,
+                          ),
+                    );
+                  }).toList(),
+                ],
+              ),
+            ],
+          ),
+        ),
       );
     }).toList();
   }
