@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 
 class CustomHero extends StatelessWidget {
   final Widget child;
-  const CustomHero({super.key, required this.child});
+  final String tag;
+  const CustomHero({super.key, required this.child, this.tag = 'hero'});
 
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: 'hero',
+      tag: tag,
       flightShuttleBuilder: (
         BuildContext flightContext,
         Animation<double> animation,

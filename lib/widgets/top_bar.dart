@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
+import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/link_button.dart';
 
 class TopBar extends StatelessWidget {
@@ -48,19 +49,28 @@ class TopBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          LinkButton(
-            url: 'https://github.com/jk-tripathy',
-            img: 'assets/img/github.png',
-            imgDim: imgDim,
+          CustomHero(
+            tag: 'github',
+            child: LinkButton(
+              url: 'https://github.com/jk-tripathy',
+              img: 'assets/img/github.png',
+              imgDim: imgDim,
+            ),
           ),
-          LinkButton(
-            url: 'https://www.linkedin.com/in/jk-tripathy/',
-            img: 'assets/img/linkedin.png',
-            imgDim: imgDim,
+          CustomHero(
+            tag: 'linkedin',
+            child: LinkButton(
+              url: 'https://www.linkedin.com/in/jk-tripathy/',
+              img: 'assets/img/linkedin.png',
+              imgDim: imgDim,
+            ),
           ),
-          LinkButton(
-            img: 'assets/img/cv.png',
-            imgDim: imgDim,
+          CustomHero(
+            tag: 'cv',
+            child: LinkButton(
+              img: 'assets/img/cv.png',
+              imgDim: imgDim,
+            ),
           ),
         ],
       ),

@@ -35,7 +35,7 @@ class LandingScreenText extends StatelessWidget {
           SizedBox(
             width: textBoxWidth,
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   "Researcher",
@@ -45,13 +45,26 @@ class LandingScreenText extends StatelessWidget {
                       ),
                 ),
                 Text(
-                  " + ",
+                  " | ",
                   style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                         color: Theme.of(context).primaryColorLight,
                       ),
                 ),
                 Text(
                   "Developer",
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                        color: Theme.of(context).hintColor,
+                        fontFamily: "Carrois",
+                      ),
+                ),
+                Text(
+                  " | ",
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                        color: Theme.of(context).primaryColorLight,
+                      ),
+                ),
+                Text(
+                  "Engineer",
                   style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                         color: Theme.of(context).hintColor,
                         fontFamily: "Carrois",
