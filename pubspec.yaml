@@ -67,6 +67,7 @@ flutter:
     - assets/img/cv.png
     - assets/img/me.jpg
     - assets/img/me-circle.png
+    - assets/Tripathy_Jatin_CV.pdf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
