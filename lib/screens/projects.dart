@@ -172,7 +172,7 @@ class PageIndicator extends StatelessWidget {
             padding: EdgeInsets.zero,
             onPressed: () {
               if (currentPageIndex == 0) {
-                return;
+                onUpdateCurrentPageIndex(tabController.length - 1);
               }
               onUpdateCurrentPageIndex(currentPageIndex - 1);
             },
@@ -193,8 +193,8 @@ class PageIndicator extends StatelessWidget {
             splashRadius: 16.0,
             padding: EdgeInsets.zero,
             onPressed: () {
-              if (currentPageIndex == 2) {
-                return;
+              if (currentPageIndex == tabController.length - 1) {
+                onUpdateCurrentPageIndex(0);
               }
               onUpdateCurrentPageIndex(currentPageIndex + 1);
             },
