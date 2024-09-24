@@ -53,16 +53,6 @@ class ContactView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         CustomHero(
-                          tag: 'github',
-                          child: LinkButton(
-                            url: 'https://github.com/jk-tripathy',
-                            img: 'assets/img/github.png',
-                            imgDim: constraints.maxWidth < mobileWidth
-                                ? MediaQuery.of(context).size.width * 0.07
-                                : MediaQuery.of(context).size.height * 0.06,
-                          ),
-                        ),
-                        CustomHero(
                           tag: 'linkedin',
                           child: LinkButton(
                             url: 'https://www.linkedin.com/in/jk-tripathy/',
@@ -76,6 +66,15 @@ class ContactView extends StatelessWidget {
                           tag: 'cv',
                           child: LinkButton(
                             img: 'assets/img/cv.png',
+                            imgDim: constraints.maxWidth < mobileWidth
+                                ? MediaQuery.of(context).size.width * 0.07
+                                : MediaQuery.of(context).size.height * 0.06,
+                          ),
+                        ),
+                        CustomHero(
+                          tag: 'mail',
+                          child: LinkButton(
+                            img: 'assets/img/mail.png',
                             imgDim: constraints.maxWidth < mobileWidth
                                 ? MediaQuery.of(context).size.width * 0.07
                                 : MediaQuery.of(context).size.height * 0.06,

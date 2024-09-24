@@ -1,7 +1,11 @@
+import 'dart:io';
+import 'package:file_saver/file_saver.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
 import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/link_button.dart';
+import 'dart:convert' show base64Encode, utf8;
+import 'package:web/web.dart' as web;
 
 class TopBar extends StatelessWidget {
   const TopBar({
@@ -36,12 +40,12 @@ class TopBar extends StatelessWidget {
     double imgDim;
     if (MediaQuery.of(context).size.width < mobileWidth) {
       // MOBILE
-      sizedBoxDim = MediaQuery.of(context).size.width * 0.4;
-      imgDim = MediaQuery.of(context).size.width * 0.07;
+      sizedBoxDim = MediaQuery.of(context).size.width * 0.45;
+      imgDim = MediaQuery.of(context).size.width * 0.06;
     } else {
       // DESKTOP
-      sizedBoxDim = MediaQuery.of(context).size.height * 0.25;
-      imgDim = MediaQuery.of(context).size.height * 0.06;
+      sizedBoxDim = MediaQuery.of(context).size.height * 0.35;
+      imgDim = MediaQuery.of(context).size.height * 0.05;
     }
     return SizedBox(
       width: sizedBoxDim,
@@ -67,8 +71,34 @@ class TopBar extends StatelessWidget {
           ),
           CustomHero(
             tag: 'cv',
+            child: IconButton(
+              onPressed: () async {
+                File cv = File('assets/Tripathy_Jatin_CV.pdf');
+                final bytes = cv.readAsBytesSync();
+                final web.HTMLAnchorElement anchor =
+                    web.document.createElement('a') as web.HTMLAnchorElement
+                      ..href =
+                          "data:application/octet-stream;base64,${base64Encode(bytes)}"
+                      ..style.display = 'none'
+                      ..download = 'Tripathy_Jatin_CV.pdf';
+
+                web.document.body!.appendChild(anchor);
+                anchor.click();
+                web.document.body!.removeChild(anchor);
+              },
+              icon: Image.asset(
+                width: imgDim,
+                height: imgDim,
+                fit: BoxFit.cover,
+                'assets/img/cv.png',
+              ),
+            ),
+          ),
+          CustomHero(
+            tag: 'mail',
             child: LinkButton(
-              img: 'assets/img/cv.png',
+              url: 'mailto:jatinkarthikt@gmail.com',
+              img: 'assets/img/mail.png',
               imgDim: imgDim,
             ),
           ),
