@@ -62,7 +62,7 @@ class AboutView extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.3,
         child: Center(
           child: Text(
-            "I am a software engineer with a passion for creating and developing software applications as well as research. I have experience in developing web applications, mobile applications, and desktop applications. I am proficient in a variety of programming languages and frameworks. I am a quick learner and a team player. I am always looking for new challenges and opportunities to grow.",
+            "Coming out of a Master’s degree and a year’s worth of experience as a research assistant at DFKI and several papers published in reputed journals, I have proven to have good experience with Machine Learning, Natural Language Processing, and the basics of software development. ",
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Theme.of(context).primaryColorLight,
                 ),
@@ -105,7 +105,7 @@ class AboutView extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.60,
         child: Center(
           child: Text(
-            "I am a software engineer with a passion for creating and developing software applications as well as research. I have experience in developing web applications, mobile applications, and desktop applications. I am proficient in a variety of programming languages and frameworks. I am a quick learner and a team player. I am always looking for new challenges and opportunities to grow.",
+            "Coming out of a Master’s degree and a year’s worth of experience as a research assistant at DFKI and several papers published in reputed journals, I have proven to have good experience with Machine Learning, Natural Language Processing, and the basics of software development. ",
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Theme.of(context).primaryColorLight,
                 ),
