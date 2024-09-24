@@ -12,6 +12,7 @@ import 'package:portfolio/screens/work.dart';
 
 void main() {
   usePathUrlStrategy();
+  GoRouter.optionURLReflectsImperativeAPIs = true;
   runApp(const MyApp());
 }
 
