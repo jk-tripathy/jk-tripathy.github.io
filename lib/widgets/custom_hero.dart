@@ -19,11 +19,10 @@ class CustomHero extends StatelessWidget {
           firstChild: fromHeroContext.widget,
           secondChild: toHeroContext.widget,
           firstCurve: Curves.easeInOut,
-          secondCurve: Curves.easeOutSine,
-          sizeCurve: Curves.elasticIn,
-          crossFadeState: flightDirection == HeroFlightDirection.pop
-              ? CrossFadeState.showFirst
-              : CrossFadeState.showSecond,
+          secondCurve: Curves.easeInOut,
+          crossFadeState: flightDirection == HeroFlightDirection.push
+              ? CrossFadeState.showSecond
+              : CrossFadeState.showFirst,
           duration: const Duration(milliseconds: 1000),
           reverseDuration: const Duration(milliseconds: 1000),
         );

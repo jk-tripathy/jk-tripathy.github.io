@@ -72,7 +72,7 @@ class LandingPage extends StatelessWidget {
     return CustomHero(
       child: ElevatedButton(
         onPressed: () {
-          return GoRouter.of(context).go('/home');
+          GoRouter.of(context).push('/home');
         },
         style: ButtonStyle(
           foregroundColor:

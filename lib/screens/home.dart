@@ -158,7 +158,7 @@ class SectionsNav extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    return GoRouter.of(context).go('/$tag');
+                    GoRouter.of(context).push('/$tag');
                   },
                   child: Text(
                     emphText,
