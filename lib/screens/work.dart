@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
-import 'package:portfolio/data/project_list.dart';
+import 'package:portfolio/data/work_list.dart';
 import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/page_indicator.dart';
 import 'package:portfolio/widgets/top_bar.dart';
@@ -23,7 +23,7 @@ class _WorkViewState extends State<WorkView> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _pageViewController = PageController();
-    _tabController = TabController(length: project_list.length, vsync: this);
+    _tabController = TabController(length: work_list.length, vsync: this);
   }
 
   @override
@@ -31,6 +31,41 @@ class _WorkViewState extends State<WorkView> with TickerProviderStateMixin {
     super.dispose();
     _pageViewController.dispose();
     _tabController.dispose();
+  }
+
+  void _handlePageViewChanged(int currentPageIndex) {
+    if (!_isOnDesktopAndWeb) {
+      return;
+    }
+    _tabController.index = currentPageIndex;
+    setState(() {
+      _currentPageIndex = currentPageIndex;
+    });
+  }
+
+  void _updateCurrentPageIndex(int index) {
+    _tabController.index = index;
+    _pageViewController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  bool get _isOnDesktopAndWeb {
+    if (kIsWeb) {
+      return true;
+    }
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.macOS:
+      case TargetPlatform.linux:
+      case TargetPlatform.windows:
+        return true;
+      case TargetPlatform.android:
+      case TargetPlatform.iOS:
+      case TargetPlatform.fuchsia:
+        return false;
+    }
   }
 
   @override
@@ -78,7 +113,7 @@ class _WorkViewState extends State<WorkView> with TickerProviderStateMixin {
                           child: PageView(
                             controller: _pageViewController,
                             onPageChanged: _handlePageViewChanged,
-                            children: PageViewContent(context),
+                            children: PageViewContent(context, constraints),
                           ),
                         ),
                       ],
@@ -99,46 +134,150 @@ class _WorkViewState extends State<WorkView> with TickerProviderStateMixin {
     );
   }
 
-  List<Widget> PageViewContent(BuildContext context) {
-    return project_list.map((project) {
+  List<Widget> PageViewContent(
+      BuildContext context, BoxConstraints constraints) {
+    return work_list.map((work) {
       return Center(
-        child: Text(project['title']!),
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      work['title']!,
+                      style:
+                          Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                color: Theme.of(context).primaryColorLight,
+                              ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  constraints.maxWidth < mobileWidth
+                      ? Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  "at ",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium!
+                                      .copyWith(
+                                        color: Theme.of(context).hintColor,
+                                      ),
+                                ),
+                                Text(
+                                  work['Company']!,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelLarge!
+                                      .copyWith(
+                                        color:
+                                            Theme.of(context).primaryColorLight,
+                                      ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "from ",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium!
+                                      .copyWith(
+                                        color: Theme.of(context).hintColor,
+                                      ),
+                                ),
+                                Text(
+                                  work['duration']!,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelLarge!
+                                      .copyWith(
+                                        color:
+                                            Theme.of(context).primaryColorLight,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              "at ",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium!
+                                  .copyWith(
+                                    color: Theme.of(context).hintColor,
+                                  ),
+                            ),
+                            Text(
+                              work['Company']!,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge!
+                                  .copyWith(
+                                    color: Theme.of(context).primaryColorLight,
+                                  ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "from ",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium!
+                                  .copyWith(
+                                    color: Theme.of(context).hintColor,
+                                  ),
+                            ),
+                            Text(
+                              work['duration']!,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge!
+                                  .copyWith(
+                                    color: Theme.of(context).primaryColorLight,
+                                  ),
+                            ),
+                          ],
+                        )
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...work['content']!.map<Widget>((content) {
+                    return Text(
+                      "• $content",
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: Theme.of(context).primaryColorLight,
+                          ),
+                    );
+                  }).toList(),
+                ],
+              ),
+            ],
+          ),
+        ),
       );
     }).toList();
-  }
-
-  void _handlePageViewChanged(int currentPageIndex) {
-    if (!_isOnDesktopAndWeb) {
-      return;
-    }
-    _tabController.index = currentPageIndex;
-    setState(() {
-      _currentPageIndex = currentPageIndex;
-    });
-  }
-
-  void _updateCurrentPageIndex(int index) {
-    _tabController.index = index;
-    _pageViewController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 400),
-      curve: Curves.easeInOut,
-    );
-  }
-
-  bool get _isOnDesktopAndWeb {
-    if (kIsWeb) {
-      return true;
-    }
-    switch (defaultTargetPlatform) {
-      case TargetPlatform.macOS:
-      case TargetPlatform.linux:
-      case TargetPlatform.windows:
-        return true;
-      case TargetPlatform.android:
-      case TargetPlatform.iOS:
-      case TargetPlatform.fuchsia:
-        return false;
-    }
   }
 }
