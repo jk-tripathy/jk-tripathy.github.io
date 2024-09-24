@@ -1,11 +1,7 @@
-import 'dart:math';
-
-import 'package:contactus/contactus.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
 import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/link_button.dart';
-import 'package:portfolio/widgets/top_bar.dart';
 
 class ContactView extends StatelessWidget {
   const ContactView({super.key});
