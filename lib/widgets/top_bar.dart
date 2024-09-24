@@ -1,11 +1,10 @@
-import 'dart:io';
-import 'package:file_saver/file_saver.dart';
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:portfolio/data/dimensions.dart';
 import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/link_button.dart';
-import 'dart:convert' show base64Encode, utf8;
-import 'package:web/web.dart' as web;
 
 class TopBar extends StatelessWidget {
   const TopBar({
@@ -69,22 +68,24 @@ class TopBar extends StatelessWidget {
               imgDim: imgDim,
             ),
           ),
-          /* CustomHero(
+          CustomHero(
             tag: 'cv',
             child: IconButton(
               onPressed: () async {
-                File cv = File('assets/Tripathy_Jatin_CV.pdf');
-                final bytes = cv.readAsBytesSync();
-                final web.HTMLAnchorElement anchor =
-                    web.document.createElement('a') as web.HTMLAnchorElement
-                      ..href =
-                          "data:application/octet-stream;base64,${base64Encode(bytes)}"
+                var data =
+                    await rootBundle.load('assets/Tripathy_Jatin_CV.pdf');
+                final bytes = data.buffer.asUint8List();
+                final blob = html.Blob([bytes]);
+                final url = html.Url.createObjectUrlFromBlob(blob);
+                final anchor =
+                    html.document.createElement('a') as html.AnchorElement
+                      ..href = url
                       ..style.display = 'none'
                       ..download = 'Tripathy_Jatin_CV.pdf';
-
-                web.document.body!.appendChild(anchor);
+                html.document.body!.children.add(anchor);
                 anchor.click();
-                web.document.body!.removeChild(anchor);
+                html.document.body!.children.remove(anchor);
+                html.Url.revokeObjectUrl(url);
               },
               icon: Image.asset(
                 width: imgDim,
@@ -93,7 +94,7 @@ class TopBar extends StatelessWidget {
                 'assets/img/cv.png',
               ),
             ),
-          ), */
+          ),
           CustomHero(
             tag: 'mail',
             child: LinkButton(

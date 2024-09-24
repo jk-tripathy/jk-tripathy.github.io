@@ -1,4 +1,7 @@
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:portfolio/data/dimensions.dart';
 import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/link_button.dart';
@@ -62,15 +65,38 @@ class ContactView extends StatelessWidget {
                                 : MediaQuery.of(context).size.height * 0.06,
                           ),
                         ),
-                        /* CustomHero(
+                        CustomHero(
                           tag: 'cv',
-                          child: LinkButton(
-                            img: 'assets/img/cv.png',
-                            imgDim: constraints.maxWidth < mobileWidth
-                                ? MediaQuery.of(context).size.width * 0.07
-                                : MediaQuery.of(context).size.height * 0.06,
+                          child: IconButton(
+                            onPressed: () async {
+                              var data = await rootBundle
+                                  .load('assets/Tripathy_Jatin_CV.pdf');
+                              final bytes = data.buffer.asUint8List();
+                              final blob = html.Blob([bytes]);
+                              final url =
+                                  html.Url.createObjectUrlFromBlob(blob);
+                              final anchor = html.document.createElement('a')
+                                  as html.AnchorElement
+                                ..href = url
+                                ..style.display = 'none'
+                                ..download = 'Tripathy_Jatin_CV.pdf';
+                              html.document.body!.children.add(anchor);
+                              anchor.click();
+                              html.document.body!.children.remove(anchor);
+                              html.Url.revokeObjectUrl(url);
+                            },
+                            icon: Image.asset(
+                              width: constraints.maxWidth < mobileWidth
+                                  ? MediaQuery.of(context).size.width * 0.07
+                                  : MediaQuery.of(context).size.height * 0.06,
+                              height: constraints.maxWidth < mobileWidth
+                                  ? MediaQuery.of(context).size.width * 0.07
+                                  : MediaQuery.of(context).size.height * 0.06,
+                              fit: BoxFit.cover,
+                              'assets/img/cv.png',
+                            ),
                           ),
-                        ), */
+                        ),
                         CustomHero(
                           tag: 'mail',
                           child: LinkButton(
