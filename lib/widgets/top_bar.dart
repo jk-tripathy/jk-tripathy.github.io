@@ -1,4 +1,5 @@
 import 'dart:html' as html;
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,8 +8,12 @@ import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/link_button.dart';
 
 class TopBar extends StatelessWidget {
+  final bool showBackButton;
+  final bool showIconGroup;
   const TopBar({
     super.key,
+    this.showBackButton = true,
+    this.showIconGroup = true,
   });
 
   @override
@@ -21,19 +26,33 @@ class TopBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Text(
-              "JKT",
-              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    color: Theme.of(context).hintColor,
-                    fontFamily: "Carrois",
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.15,
+            child: showBackButton
+                ? IconButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    iconSize: min(
+                      MediaQuery.of(context).size.height * 0.045,
+                      MediaQuery.of(context).size.width * 0.045,
+                    ),
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      color: Theme.of(context).primaryColorLight,
+                    ),
+                  )
+                : Text(
+                    "JKT",
+                    style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                          color: Theme.of(context).hintColor,
+                          fontFamily: "Carrois",
+                        ),
                   ),
-            ),
           ),
-          iconGroup(context),
+          showIconGroup
+              ? iconGroup(context)
+              : SizedBox(width: MediaQuery.of(context).size.width * 0.85),
         ],
       ),
     );
