@@ -21,12 +21,17 @@ class TopBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text(
-            "JKT",
-            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                  color: Theme.of(context).hintColor,
-                  fontFamily: "Carrois",
-                ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text(
+              "JKT",
+              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    color: Theme.of(context).hintColor,
+                    fontFamily: "Carrois",
+                  ),
+            ),
           ),
           iconGroup(context),
         ],
