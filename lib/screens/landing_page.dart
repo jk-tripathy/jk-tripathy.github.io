@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
+import 'package:portfolio/widgets/bottom_wave.dart';
 import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/landing_screen_text.dart';
 import 'package:go_router/go_router.dart';
@@ -12,16 +13,21 @@ class LandingPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Theme.of(context).primaryColorDark,
-        body: Center(
-          child: LayoutBuilder(builder: (context, constraints) {
-            if (constraints.maxWidth < mobileWidth) {
-              // MOBILE
-              return MobileView(context);
-            } else {
-              // DESKTOP
-              return DesktopView(context);
-            }
-          }),
+        body: Stack(
+          children: [
+            BottomWave(),
+            Center(
+              child: LayoutBuilder(builder: (context, constraints) {
+                if (constraints.maxWidth < mobileWidth) {
+                  // MOBILE
+                  return MobileView(context);
+                } else {
+                  // DESKTOP
+                  return DesktopView(context);
+                }
+              }),
+            ),
+          ],
         ),
       ),
     );
@@ -35,8 +41,8 @@ class LandingPage extends StatelessWidget {
           textBoxWidth: MediaQuery.of(context).size.width * 0.6,
         ),
         Positioned(
-          top: MediaQuery.of(context).size.height * 0.7,
-          left: MediaQuery.of(context).size.width * 0.55,
+          top: MediaQuery.of(context).size.height * 0.65,
+          left: MediaQuery.of(context).size.width * 0.65,
           child: navButton(
             context,
             'rightToLeft',

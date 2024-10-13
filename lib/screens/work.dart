@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
 import 'package:portfolio/data/work_list.dart';
+import 'package:portfolio/widgets/bottom_wave.dart';
 import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/page_indicator.dart';
 import 'package:portfolio/widgets/top_bar.dart';
@@ -73,60 +74,65 @@ class _WorkViewState extends State<WorkView> with TickerProviderStateMixin {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Theme.of(context).primaryColorDark,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
+        body: Stack(
           children: [
-            const TopBar(),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
-              height: MediaQuery.of(context).size.height * 0.85,
-              child: LayoutBuilder(builder: (context, constraints) {
-                return Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Stack(
+            BottomWave(),
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const TopBar(),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.85,
+                  height: MediaQuery.of(context).size.height * 0.85,
+                  child: LayoutBuilder(builder: (context, constraints) {
+                    return Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        CustomHero(
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.85,
-                            height: constraints.maxWidth < mobileWidth
-                                ? MediaQuery.of(context).size.height * 0.65
-                                : MediaQuery.of(context).size.height * 0.60,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Theme.of(context).primaryColorLight,
-                                width: 4,
-                              ),
-                              borderRadius: BorderRadius.circular(
-                                25,
+                        Stack(
+                          children: [
+                            CustomHero(
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.85,
+                                height: constraints.maxWidth < mobileWidth
+                                    ? MediaQuery.of(context).size.height * 0.60
+                                    : MediaQuery.of(context).size.height * 0.60,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Theme.of(context).primaryColorLight,
+                                    width: 4,
+                                  ),
+                                  borderRadius: BorderRadius.circular(
+                                    25,
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.85,
+                              height: constraints.maxWidth < mobileWidth
+                                  ? MediaQuery.of(context).size.height * 0.60
+                                  : MediaQuery.of(context).size.height * 0.60,
+                              child: PageView(
+                                controller: _pageViewController,
+                                onPageChanged: _handlePageViewChanged,
+                                children: PageViewContent(context, constraints),
+                              ),
+                            ),
+                          ],
                         ),
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.85,
-                          height: constraints.maxWidth < mobileWidth
-                              ? MediaQuery.of(context).size.height * 0.65
-                              : MediaQuery.of(context).size.height * 0.60,
-                          child: PageView(
-                            controller: _pageViewController,
-                            onPageChanged: _handlePageViewChanged,
-                            children: PageViewContent(context, constraints),
-                          ),
+                        PageIndicator(
+                          tabController: _tabController,
+                          currentPageIndex: _currentPageIndex,
+                          onUpdateCurrentPageIndex: _updateCurrentPageIndex,
+                          isOnDesktopAndWeb: _isOnDesktopAndWeb,
                         ),
                       ],
-                    ),
-                    PageIndicator(
-                      tabController: _tabController,
-                      currentPageIndex: _currentPageIndex,
-                      onUpdateCurrentPageIndex: _updateCurrentPageIndex,
-                      isOnDesktopAndWeb: _isOnDesktopAndWeb,
-                    ),
-                  ],
-                );
-              }),
+                    );
+                  }),
+                ),
+              ],
             ),
           ],
         ),

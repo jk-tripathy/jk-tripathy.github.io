@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/dimensions.dart';
+import 'package:portfolio/widgets/bottom_wave.dart';
 import 'package:portfolio/widgets/custom_hero.dart';
 import 'package:portfolio/widgets/top_bar.dart';
 
@@ -11,23 +12,28 @@ class AboutView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Theme.of(context).primaryColorDark,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
+        body: Stack(
           children: [
-            const TopBar(),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.75,
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  if (constraints.maxWidth < mobileWidth) {
-                    return MobileView(context);
-                  } else {
-                    return DesktopView(context);
-                  }
-                },
-              ),
+            BottomWave(),
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const TopBar(),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.75,
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      if (constraints.maxWidth < mobileWidth) {
+                        return MobileView(context);
+                      } else {
+                        return DesktopView(context);
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
           ],
         ),
